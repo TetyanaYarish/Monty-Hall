@@ -2,11 +2,21 @@
 
 namespace Monty_Hall
 {
-   public class Program
+    public class Program
     {
-      public static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            bool firstDoor = true;
+            bool secondDoor = false;
+            bool thirdDoor = false;
+            Prise price = new();
+            price.GetPrice();
+            Doors doors = new(doorsEnum.Door_1);
+            doors.GetDoor();
+            Game game = new();
+            game.ReturnPrise();
+            Console.WriteLine($"Hello World! {firstDoor} + {secondDoor} + {thirdDoor}");
+
         }
     }
 }

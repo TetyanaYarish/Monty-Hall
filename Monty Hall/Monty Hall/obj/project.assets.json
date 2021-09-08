@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty Hall\\Monty Hall\\Monty Hall.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty-Hall\\Monty Hall\\Monty Hall\\Monty Hall.csproj",
       "projectName": "Monty Hall",
-      "projectPath": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty Hall\\Monty Hall\\Monty Hall.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty-Hall\\Monty Hall\\Monty Hall\\Monty Hall.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty Hall\\Monty Hall\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty-Hall\\Monty Hall\\Monty Hall\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
