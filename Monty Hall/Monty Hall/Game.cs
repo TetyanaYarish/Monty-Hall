@@ -10,18 +10,11 @@ namespace Monty_Hall
     {
         public List<Doors> doors = new();
 
-        public List<Prise> prises = new List<Prise>();
+        public List<Prise> prises = new ();
         public void ReturnPrise()
         {
-            Console.WriteLine("Doors number: " + doors.Count());
-            Console.WriteLine("Prises number: " + prises.Count());
+           
         }
-        public int RandomDoor()
-        {
-            Random rnd = new();
-            int mIndex = doors.Count;
-            return mIndex;
-
-        }
+       
     }
 }

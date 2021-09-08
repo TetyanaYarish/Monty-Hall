@@ -6,17 +6,14 @@ namespace Monty_Hall
     {
         public static void Main(string[] args)
         {
-            bool firstDoor = true;
-            bool secondDoor = false;
-            bool thirdDoor = false;
             Prise price = new();
             price.GetPrice();
-            Doors doors = new(doorsEnum.Door_1);
+            Doors doors = new();
             doors.GetDoor();
             Game game = new();
             game.ReturnPrise();
-            game.RandomDoor();
-            Console.WriteLine($"Hello World! {firstDoor} + {secondDoor} + {thirdDoor}");
+            doors.RandomDoor();
+            Console.WriteLine(price.YourPrise());
           
         }
     }
