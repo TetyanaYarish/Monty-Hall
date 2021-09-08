@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Monty_Hall
 {
 
-    class Prise
+   public class Prise
     {
         string[] listOfPrice = { "Luxury car", "Rubish bin", "Rubish bin" };
         public void GetPrice()

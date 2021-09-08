@@ -15,8 +15,9 @@ namespace Monty_Hall
             doors.GetDoor();
             Game game = new();
             game.ReturnPrise();
+            game.RandomDoor();
             Console.WriteLine($"Hello World! {firstDoor} + {secondDoor} + {thirdDoor}");
-
+          
         }
     }
 }
