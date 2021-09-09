@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Monty_Hall;
 
-namespace TestProject
+namespace Monty_Hall
 {
-    public class FakePlayer : IPlayer
+    internal class FakePlayerAndAnswer : IPlayer //FakePl from Program
     {
         List<string> fakeAnswer = new List<string>() { "N", "Y", "Y", "Y" };
         public string Answer()
@@ -15,12 +12,14 @@ namespace TestProject
             var m = fakeAnswer.Count();
             if (m == 0)
             {
-                return "N";
-                // throw Exception 
+                //return "N";
+                throw new Exception("You don't leave any answer.");
             }
             var answ = fakeAnswer[m - 1];//throw Exception
             fakeAnswer.Remove(answ);
             return answ;
         }
+
+       
     }
 }

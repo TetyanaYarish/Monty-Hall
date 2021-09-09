@@ -19,7 +19,7 @@ namespace Monty_Hall
         }
         public string YourPrise()
         {
-            string[] Titles = { "Luxury car", "Goat", "Goat" };
+            string[] Titles = { "Luxury car", "Goat1", "Goat2" };
 
            string value = Titles[new Random().Next(0, Titles.Length)];
             return value;

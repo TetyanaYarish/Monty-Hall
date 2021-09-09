@@ -26,6 +26,12 @@ namespace Monty_Hall
                 Console.WriteLine(doors[i]);
             }
         }
+
+        internal void ToList()
+        {
+            throw new NotImplementedException();
+        }
+
         public Doors()
         {
             

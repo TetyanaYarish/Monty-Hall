@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using TestProject;
 using TestProject;
 
 namespace Monty_Hall
@@ -7,26 +9,28 @@ namespace Monty_Hall
     {
         public static void Main(string[] args)
         {
-            IPlayer answ = new Player();
+            IPlayer answ = new FakePlayerAndAnswer();
             Prise price = new();
             price.GetPrice();
             Doors doors = new();
             doors.GetDoor();
             Game game = new();
-            game.ReturnPrise();
-            doors.RandomDoor();
-            Console.WriteLine("Do you want to see your prise? [Y/N]");
-            //IAnswer answ2 = new RealAnswer();
+            var door = Enum.GetValues(typeof(doorsEnum)).Cast<doorsEnum>();
+           door.ToList();
+            //game.ReturnPrise();
+            //doors.RandomDoor();
+            Console.WriteLine("Do you want to stay with this door? [Y/N]");
+            while (answ.Answer() == "Y")
+            {
+                Console.WriteLine("Your prise is: " + price.YourPrise());
+            }
+            while (answ.Answer() == "N")
+            {
+                Console.WriteLine("Your prise is: " + price.YourPrise());
+            }
 
-            if (answ.Answer() == "Y")
-            {
-                Console.WriteLine(price.YourPrise());
-            }
-            else
-            {
-                Console.ReadLine();
-            }
-          
+            Console.Write("Game over");
+            Console.ReadKey();
         }
     }
 }
