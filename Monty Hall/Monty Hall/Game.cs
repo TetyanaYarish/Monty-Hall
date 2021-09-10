@@ -8,15 +8,17 @@ namespace Monty_Hall
 {
     public class Game
     {
+        
         public List<Doors> doors = new();
 
-        public List<Prise> prises = new ();
-       internal int DoorNumber { get; }
+
+        internal int DoorNumber { get; }
         public int ReturnPrise()
         {
-            var doorNum= DoorNumber;
+            var doorNum = DoorNumber;
             return doorNum;
         }
+
         public void CooseTheDoor()
         {
             int option = 2;

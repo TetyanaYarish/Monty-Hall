@@ -18,14 +18,14 @@ namespace Monty_Hall
         public doorsEnum Door { get; }
      
 
-        public string[] doors = { "Door 1", "Door 2", "Door 3" };
-        public void GetDoor()
-        {
-            for (int i = 0; i < doors.Length; i++)
-            {
-                Console.WriteLine(doors[i]);
-            }
-        }
+        //public string[] doors = { "Door 1", "Door 2", "Door 3" };
+        //public void GetDoor()
+        //{
+        //    for (int i = 0; i < doors.Length; i++)
+        //    {
+        //        Console.WriteLine(doors[i]);
+        //    }
+        //}
 
         internal void ToList()
         {
@@ -44,14 +44,14 @@ namespace Monty_Hall
         {
             return true;
         }
-        public int RandomDoor()
-        {
-            Random rnd = new();
-            int mIndex = doors.Count();
+        //public int RandomDoor()
+        //{
+        //    Random rnd = new();
+        //    int mIndex = doors.Count();
 
-            Console.WriteLine("Number of doors: " + mIndex);
-            return mIndex;
+        //    Console.WriteLine("Number of doors: " + mIndex);
+        //    return mIndex;
 
-        }
+        //}
     }
 }
