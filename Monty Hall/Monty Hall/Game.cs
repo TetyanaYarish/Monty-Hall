@@ -8,10 +8,6 @@ namespace Monty_Hall
 {
     public class Game
     {
-        
-       
-
-
         internal int DoorNumber { get; }
         public int ReturnPrise()
         {
@@ -24,16 +20,16 @@ namespace Monty_Hall
             int option = 2;
             switch (option)
             {
-                case 1:
-                    Console.WriteLine($"Measured value is {option}; too low.");
+                case 1: 
+                    Console.WriteLine($"Door 1 is {option}; too low.");
                     break;
 
                 case 2:
-                    Console.WriteLine($"Measured value is {option}; too high.");
+                    Console.WriteLine($"Door 2 is {option}; too high.");
                     break;
 
                 case 3:
-                    Console.WriteLine("Failed measurement.");
+                    Console.WriteLine("Door 3.");
                     break;
 
                 default:

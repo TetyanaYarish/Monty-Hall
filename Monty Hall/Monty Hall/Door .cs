@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
-    public class Door
+    public class Door:IDoor
     {
         List<string> Titles = new List<string>{ "Luxury car", "Goat1", "Goat2" };
 
@@ -23,24 +23,17 @@ namespace Monty_Hall
         public void ReturnAllPrises()
         { 
             var prise1=YourPrise();
-            var prise2=YourPrise();
-            var prise3=YourPrise();
-            Console.WriteLine($"All prises are : {prise1} {prise2} and {prise3}");
-          
+           
         }
-
+ 
         public string YourPrise()
         {
-            // List<string> Titles = new List<string> { "Luxury car", "Goat1", "Goat2" };
             int num = Titles.Count();
             if (num < 1)
             {
-                throw new Exception("We dont have more prises. ");
-                
+                throw new Exception("We dont have more prizes. ");
             }
             string value = Titles[new Random().Next(0, num)];
-           
-
             Titles.Remove(value);
 
             return value;
