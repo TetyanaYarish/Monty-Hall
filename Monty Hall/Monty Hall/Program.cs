@@ -39,7 +39,7 @@ namespace Monty_Hall
             //        break;
             //}
             
-            Console.WriteLine(game.RandomDoorToShowGoat());
+           
             Console.WriteLine("Game over");
             Console.ReadKey();
         }
