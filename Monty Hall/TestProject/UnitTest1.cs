@@ -81,7 +81,8 @@ namespace TestProject
             string prise = door.ReturnPrise();
             string prise2 = door.Return2Prise();
             string prise3 = door.Return3Prise();
-            
+            door.PlayerChoseFirstDoor();
+            door.RandomDoorToShowGoat();
              door.ChoseCorrectDoor();
             Assert.Equal(prize, prise);
           

@@ -8,6 +8,7 @@ namespace Monty_Hall
 {
     public class Game
     {
+       
         internal string DoorOne { get; }
         internal string DoorTwo { get; }
         internal string DoorThree { get; }
@@ -17,6 +18,7 @@ namespace Monty_Hall
         string luxCar = "Luxury car";
         string goat = "Goat";
         bool showGoat = false;
+      
         Door door = new();
         public string ReturnPrise()
         {
@@ -64,20 +66,30 @@ namespace Monty_Hall
         }
         public void PlayerChoseFirstDoor()
         {
-            if (!prizeInSecondDoor || !prizeInThirdDoor)
+            if (!prizeInSecondDoor && !prizeInThirdDoor)
             {
                 Console.WriteLine("Second door or Trird door.");
             }
-           
-        }   
+        }
         public void PlayerChoseSecondDoor()
         {
+          
             if (!prizeInFirstDoor || !prizeInThirdDoor)
             {
                 Console.WriteLine("First door or Trird door.");
             }
            
         }
+        private static Random random = new Random();
+        //public  bool RandomDoorToShowGoat()
+        //{ List<string> myList = new List<Door>() ;
+            
+        //    // add items to the list
+        //    int num = myList.Count();
+        //    Random r = new Random();
+        //    Door randomString = myList[new Random().Next(0, num)];
+        //    return randomString;
+        //}
         public void PlayerChoseThirdDoor()
         {
             if(!prizeInFirstDoor || !prizeInThirdDoor)
