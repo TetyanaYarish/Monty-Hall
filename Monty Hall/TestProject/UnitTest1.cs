@@ -63,6 +63,8 @@ namespace TestProject
             Assert.Equal(valOfCards, ans);
         }
         // create counter to run app 
+
+        // Check if we are open right door with car behind
         [Fact]
         public void CheckPrize()
         {
@@ -71,7 +73,20 @@ namespace TestProject
             string prise = door.YourPrise();
             Assert.Equal(prize, prise);
         }
+        [Fact]
+        public void CheckPrize2()
+        {
+            string prize = "Luxury car";
+            Game door = new();
+            string prise = door.ReturnPrise();
+            string prise2 = door.Return2Prise();
+            string prise3 = door.Return3Prise();
+            
+             door.ChoseCorrectDoor();
+            Assert.Equal(prize, prise);
+          
+        }
 
-        // Check if we are open right door with goat behind
+
     }
 }

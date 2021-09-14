@@ -16,9 +16,29 @@ namespace Monty_Hall
             Console.WriteLine("Prise behide the door2: XX" );
             Console.WriteLine("Prise behide the door3: XX");
             door1.ReturnAllPrises();
-
-
-            Console.Write("Game over");
+            Game game = new();
+            game.ReturnPrise();
+            game.Return2Prise();
+            game.Return3Prise();
+            game.ChoseCorrectDoor();
+            Console.WriteLine("Chose the number of door [1/2/3].");
+            //int playerChoice = Convert.ToInt32(Console.ReadLine());
+            string playerChoice =Console.ReadLine();
+            switch (playerChoice)
+            {
+                case "1":
+                   game.PlayerChoseFirstDoor();
+                    break;
+                case "2":
+                    game.PlayerChoseSecondDoor();
+                    break;
+                case "3":
+                    game.PlayerChoseThirdDoor();
+                    break;
+                default:
+                    break;
+            }
+            Console.WriteLine("Game over");
             Console.ReadKey();
         }
     }

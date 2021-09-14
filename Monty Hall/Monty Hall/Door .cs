@@ -8,7 +8,7 @@ namespace Monty_Hall
 {
     public class Door:IDoor
     {
-        List<string> Titles = new List<string>{ "Luxury car", "Goat1", "Goat2" };
+        List<string> Titles = new List<string>{ "Luxury car", "Goat", "Goat" };
 
          private string Prize;// not allowed to change value of prise.
 
