@@ -9,7 +9,7 @@ namespace Monty_Hall
     public class Game
     {
         
-        public List<Doors> doors = new();
+       
 
 
         internal int DoorNumber { get; }

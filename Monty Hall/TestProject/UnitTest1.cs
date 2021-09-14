@@ -7,14 +7,14 @@ namespace TestProject
 {
     public class UnitTest1
     {
-        [Fact]
-        public void Test1()
-        {
-            bool firstDoor = false;
-            Doors doors = new(doorsEnum.Door_1);
-            bool compareDoors = doors.PriseIsHere();
-            Assert.Equal(firstDoor, compareDoors);
-        }
+        //[Fact]
+        //public void Test1()
+        //{
+        //    bool firstDoor = false;
+        //    Door doors = new(doorsEnum.Door_1);
+        //    bool compareDoors = doors.PriseIsHere();
+        //    Assert.Equal(firstDoor, compareDoors);
+        //}
 
         // Create test for door
 
@@ -47,14 +47,14 @@ namespace TestProject
         //    Assert.Equal(ourDoor, name);
         //}
 
-        [Fact]
-        public void TestNumberOfDoors()
-        {
-            int numberOfDoorsInArray = 3;
-            var doors = Enum.GetValues(typeof(doorsEnum)).Cast<doorsEnum>();
-            int numberOfDoors = doors.Count();
-            Assert.Equal(numberOfDoorsInArray, numberOfDoors);
-        }
+        //[Fact]
+        //public void TestNumberOfDoors()
+        //{
+        //    int numberOfDoorsInArray = 3;
+        //    var doors = Enum.GetValues(typeof(doorsEnum)).Cast<doorsEnum>();
+        //    int numberOfDoors = doors.Count();
+        //    Assert.Equal(numberOfDoorsInArray, numberOfDoors);
+        //}
 
         // Create test to ask player which door he would like to open?
         [Fact]
