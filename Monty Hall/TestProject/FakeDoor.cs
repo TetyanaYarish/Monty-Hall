@@ -11,12 +11,12 @@ namespace TestProject
     {
 
         List<string> Titles = new List<string> { "Luxury car", "Goat", "Goat" };
-        public void ReturnAllPrises()
+        public void ReturnAllPrizes()
         {
             Console.WriteLine(Titles);
         }
 
-        public string YourPrise()
+        public string YourPrize()
         {
             var prize = "";
             for (int i = 0; i < Titles.Count(); i++)

@@ -10,7 +10,7 @@ namespace Monty_Hall
     {
         List<string> Titles = new List<string>{ "Luxury car", "Goat", "Goat" };
 
-         private string Prize;// not allowed to change value of prise.
+         private string Prize;// not allowed to change value of prize.
 
         public Door(string pr)
         {
@@ -20,13 +20,13 @@ namespace Monty_Hall
         {
 
         }
-        public void ReturnAllPrises()
+        public void ReturnAllPrizes()
         { 
-            var prise1=YourPrise();
+            var prize1=YourPrize();
            
         }
  
-        public string YourPrise()
+        public string YourPrize()
         {
             int num = Titles.Count();
             if (num < 1)

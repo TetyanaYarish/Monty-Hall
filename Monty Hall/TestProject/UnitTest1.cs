@@ -17,7 +17,7 @@ namespace TestProject
         {
             string testDoor = "Goat";//Arrange
             Door door = new(testDoor);//Act
-            var door1 = door.YourPrise();
+            var door1 = door.YourPrize();
             Assert.Equal(testDoor, door1);
         }
         [Fact]
@@ -26,7 +26,7 @@ namespace TestProject
         {
             string testDoor = "Luxury car";//Arrange
             Door door = new(testDoor);//Act
-            var door1 = door.YourPrise();
+            var door1 = door.YourPrize();
             Assert.Equal(testDoor, door1);
         }
 
@@ -58,8 +58,8 @@ namespace TestProject
         {
             string prize = "Luxury car";
             Door door = new();
-            string prise = door.YourPrise();
-            Assert.Equal(prize, prise);
+            string prize = door.YourPrize();
+            Assert.Equal(prize, prize);
         }
         [Fact]
         public void CheckPrize2() // Unrunned test
@@ -69,13 +69,13 @@ namespace TestProject
             FakePlayer fakeAnsw = new FakePlayer();
            // IPlayer player = new FakePlayer();
             Game.Main(fakeAnsw);
-            string prise = door.ReturnPrise();
-            string prise2 = door.Return2Prise();
-            string prise3 = door.Return3Prise();
+            string prize = door.ReturnPrize();
+            string prize2 = door.Return2Prize();
+            string prize3 = door.Return3Prize();
             door.PlayerChooseFirstDoor();
 
             door.ChooseCorrectDoor();
-            Assert.Equal(prize, prise3);
+            Assert.Equal(prize, prize3);
 
         }
         [Fact]
@@ -92,12 +92,12 @@ namespace TestProject
             string answ = "Luxury car";
             IPlayer fakeAnsw = new FakePlayer();
             Game game = new();
-            game.ReturnPrise();
-            var a1=game.Return2Prise();
+            game.ReturnPrize();
+            var a1=game.Return2Prize();
             IDoor door = new FakeDoor();
-            door.YourPrise();
-            door.ReturnAllPrises();
-            game.Return3Prise();
+            door.YourPrize();
+            door.ReturnAllPrizes();
+            game.Return3Prize();
             Assert.Equal(answ, a1);
         }
     }

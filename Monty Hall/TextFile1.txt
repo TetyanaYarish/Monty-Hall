@@ -4,12 +4,12 @@
             string answ = "Goat";
             IPlayer fakeAnsw = new FakePlayer();
             Game game = new();
-            game.ReturnPrise();
-            game.Return2Prise();
-            game.Return3Prise();
+            game.ReturnPrize();
+            game.Return2Prize();
+            game.Return3Prize();
             game.ChoseCorrectDoor();
             var a1=fakeAnsw.AnswerChoseNumberOfDoor();
-            //game.ReturnPrise();
+            //game.ReturnPrize();
             Game.ContinueGame(fakeAnsw);
             Game.Main(fakeAnsw);            
         }

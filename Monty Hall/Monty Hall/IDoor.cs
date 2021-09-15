@@ -8,8 +8,8 @@ namespace Monty_Hall
 {
     public interface IDoor
     {
-        public void ReturnAllPrises();
-        public string YourPrise();
+        public void ReturnAllPrizes();
+        public string YourPrize();
     }
 }
 
