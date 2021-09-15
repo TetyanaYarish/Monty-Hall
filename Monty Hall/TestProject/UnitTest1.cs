@@ -74,10 +74,13 @@ namespace TestProject
             Assert.Equal(prize, prise);
         }
         [Fact]
-        public void CheckPrize2()
+        public void CheckPrize2() // Unrunned test
         {
             string prize = "Luxury car";
             Game door = new();
+            FakePlayer fakeAnsw = new FakePlayer();
+            IPlayer player = new FakePlayer();
+            Game.Main(player);
             string prise = door.ReturnPrise();
             string prise2 = door.Return2Prise();
             string prise3 = door.Return3Prise();
@@ -86,6 +89,29 @@ namespace TestProject
             door.ChoseCorrectDoor();
             Assert.Equal(prize, prise3);
 
+        }
+        [Fact]
+        public void TestFakeAnswer()//Pass
+        {
+            string answ = "1";
+            FakePlayer fakeAnsw = new FakePlayer();
+            string answer = fakeAnsw.AnswerChoseNumberOfDoor();
+            Assert.Equal(answ, answer);
+        }
+        [Fact]
+        public void Test()//
+        {
+            string answ = "1";
+            IPlayer fakeAnsw = new FakePlayer();
+            Game game = new();
+            game.ReturnPrise();
+            game.Return2Prise();
+            game.Return3Prise();
+            game.ChoseCorrectDoor();
+            var a1=fakeAnsw.AnswerChoseNumberOfDoor();
+            //game.ReturnPrise();
+            Game.ContinueGame(fakeAnsw);
+            Game.Main(fakeAnsw);            
         }
     }
 }

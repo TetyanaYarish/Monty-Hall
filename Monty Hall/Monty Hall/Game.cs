@@ -99,13 +99,13 @@ namespace Monty_Hall
    
         public static void Main(IPlayer answ)
         {
-            IPlayer answ1 = new Player();
-            Player pl = new();
+           // IPlayer answ1 = new Player();
+            IPlayer pl = new Player();
             Door door1 = new();
 
-            Console.WriteLine("Prise behide the door1: XX");
-            Console.WriteLine("Prise behide the door2: XX");
-            Console.WriteLine("Prise behide the door3: XX");
+            Console.WriteLine("Prise behide the door 1: XX");
+            Console.WriteLine("Prise behide the door 2: XX");
+            Console.WriteLine("Prise behide the door 3: XX");
             door1.ReturnAllPrises();
             Game game = new();
             game.ReturnPrise();
@@ -114,8 +114,6 @@ namespace Monty_Hall
             game.ChoseCorrectDoor();
             bool continueGame = true;
             Console.WriteLine("Chose the number of door [1/2/3].");
-            //int playerChoice = Convert.ToInt32(Console.ReadLine());
-            // string playerChoice = Console.ReadLine();// Change this ***
             string playerChoice = pl.AnswerChoseNumberOfDoor();
             switch (playerChoice)
             {
@@ -142,11 +140,11 @@ namespace Monty_Hall
             switch (playerChoice2)
             {
                 case "1":
-                    Console.Write($"You choose stay. Car was behind  ");
+                    Console.Write($"You choose stay. Car was behind ");
                     game.ChoseCorrectDoor();
                     break;
                 case "2":
-                    Console.Write($"You choose switch.Car was behind ");
+                    Console.Write($"You choose switch. Car was behind ");
                     game.ChoseCorrectDoor();
                     break;
 
