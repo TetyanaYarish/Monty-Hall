@@ -30,25 +30,13 @@ namespace TestProject
             Assert.Equal(testDoor, door1);
         }
 
-        [Fact]
-        public void CheckDoor()
-        {
-            string ourDoor = "FirstDoor";
-            Door door = new();
-            var d = door.GetType();
-            var name = d.Name;
-            Assert.Equal(ourDoor, name);
-        }
-
-
-
         // Create test to ask player which door he would like to open?
         [Fact]
         public void CheckFakeAnswer()// Check, if player's answer works
         {
             var yes = "Y";
             FakePlayer fakeAnswer = new FakePlayer();// Call method fake answer
-            string ans = fakeAnswer.AnswerChoseNumberOfDoor();
+            string ans = fakeAnswer.AnswerChooseNumberOfDoor();
             Assert.Equal(yes, ans);
         }
 
@@ -57,9 +45,9 @@ namespace TestProject
         [Fact]
         public void CheckIfFakeAnswerWorks()// Check, if player's answer works
         {
-            var valOfCards = "Y";
+            var valOfCards = "1";
             FakePlayer fakeAnswer = new FakePlayer();// Call method fake answer
-            string ans = fakeAnswer.AnswerChoseNumberOfDoor();
+            string ans = fakeAnswer.AnswerChooseNumberOfDoor();
             Assert.Equal(valOfCards, ans);
         }
         // create counter to run app 
@@ -79,14 +67,14 @@ namespace TestProject
             string prize = "Luxury car";
             Game door = new();
             FakePlayer fakeAnsw = new FakePlayer();
-            IPlayer player = new FakePlayer();
-            Game.Main(player);
+           // IPlayer player = new FakePlayer();
+            Game.Main(fakeAnsw);
             string prise = door.ReturnPrise();
             string prise2 = door.Return2Prise();
             string prise3 = door.Return3Prise();
-            door.PlayerChoseFirstDoor();
+            door.PlayerChooseFirstDoor();
 
-            door.ChoseCorrectDoor();
+            door.ChooseCorrectDoor();
             Assert.Equal(prize, prise3);
 
         }
@@ -95,23 +83,22 @@ namespace TestProject
         {
             string answ = "1";
             FakePlayer fakeAnsw = new FakePlayer();
-            string answer = fakeAnsw.AnswerChoseNumberOfDoor();
+            string answer = fakeAnsw.AnswerChooseNumberOfDoor();
             Assert.Equal(answ, answer);
         }
         [Fact]
         public void Test()//
         {
-            string answ = "1";
+            string answ = "Luxury car";
             IPlayer fakeAnsw = new FakePlayer();
             Game game = new();
             game.ReturnPrise();
-            game.Return2Prise();
+            var a1=game.Return2Prise();
+            IDoor door = new FakeDoor();
+            door.YourPrise();
+            door.ReturnAllPrises();
             game.Return3Prise();
-            game.ChoseCorrectDoor();
-            var a1=fakeAnsw.AnswerChoseNumberOfDoor();
-            //game.ReturnPrise();
-            Game.ContinueGame(fakeAnsw);
-            Game.Main(fakeAnsw);            
+            Assert.Equal(answ, a1);
         }
     }
 }

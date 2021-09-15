@@ -43,7 +43,7 @@ namespace Monty_Hall
             }
             return door1;
         }
-        public void ChoseCorrectDoor()
+        public void ChooseCorrectDoor()
         {
             if (prizeInFirstDoor)
             {
@@ -59,7 +59,7 @@ namespace Monty_Hall
                 Console.Write("Third door");
             }
         }
-        public void PlayerChoseFirstDoor()
+        public void PlayerChooseFirstDoor()
         {
             if (!prizeInSecondDoor )
             {
@@ -70,7 +70,7 @@ namespace Monty_Hall
                 Console.WriteLine("Third door has a goat.");
             }
         }
-        public void PlayerChoseSecondDoor()
+        public void PlayerChooseSecondDoor()
         {
           
             if (!prizeInFirstDoor )
@@ -84,15 +84,15 @@ namespace Monty_Hall
            
         }
        
-        public void PlayerChoseThirdDoor()
+        public void PlayerChooseThirdDoor()
         {
             if(!prizeInFirstDoor )
             {
                 Console.WriteLine("First door has a goat.");
             }
-             else if(!prizeInThirdDoor)
+             else if(!prizeInSecondDoor)
             {
-                Console.WriteLine("Third door has a goat.");
+                Console.WriteLine("Second door has a goat.");
             }
         }
 
@@ -111,69 +111,49 @@ namespace Monty_Hall
             game.ReturnPrise();
             game.Return2Prise();
             game.Return3Prise();
-            game.ChoseCorrectDoor();
+            game.ChooseCorrectDoor();
             bool continueGame = true;
             Console.WriteLine("Chose the number of door [1/2/3].");
-            string playerChoice = pl.AnswerChoseNumberOfDoor();
-            switch (playerChoice)
+           // string playerChoice = pl.AnswerChoseNumberOfDoor();
+            switch (pl.AnswerChooseNumberOfDoor())//*** Ask Simon, why during testing, I can not call fake answer from FakePlayer.cs?
             {
                 case "1":
-                    game.PlayerChoseFirstDoor();
+                    game.PlayerChooseFirstDoor();
                     break;
                 case "2":
-                    game.PlayerChoseSecondDoor();
+                    game.PlayerChooseSecondDoor();
                     break;
                 case "3":
-                    game.PlayerChoseThirdDoor();
+                    game.PlayerChooseThirdDoor();
                     break;
                 default:
                     break;
             }
-            Console.WriteLine($"Do you want stay with your door[1] or switch [2]?");
-            do
-            {
-                Game.ContinueGame(pl);
-                break;
-            }
-            while (continueGame);
-            string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
-            switch (playerChoice2)
-            {
-                case "1":
-                    Console.Write($"You choose stay. Car was behind ");
-                    game.ChoseCorrectDoor();
-                    break;
-                case "2":
-                    Console.Write($"You choose switch. Car was behind ");
-                    game.ChoseCorrectDoor();
-                    break;
+            Console.WriteLine($"Do you want stay with your door [1] or switch [2]?");
+           
+                string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
+                switch (playerChoice2)
+                {
+                    case "1":
+                        Console.Write($"You choose stay. Car was behind ");
+                        game.ChooseCorrectDoor();
+                        break;
+                    case "2":
+                        Console.Write($"You choose switch. Car was behind ");
+                        game.ChooseCorrectDoor();
+                        break;
 
-                default:
-                    break;
-            }
+                    default:
+                        break;
+                }
+                //Game.ContinueGame(pl);
+              
         }
         public static void ContinueGame(IPlayer answ)
         {
-           
-            IPlayer answ1 = new Player();
-            Player pl = new();
-            Game game = new();
-          
-            //string playerChoice = pl.AnswerStayOrSwitchTheDoor();
-            //switch (playerChoice)
-            //{
-            //    case "1":
-            //        Console.WriteLine($"You choose stay. Car was behind  ");
-            //        game.ChoseCorrectDoor();
-            //        break;
-            //    case "2":
-            //        Console.WriteLine($"You choose switch.Car was behind ");
-            //        game.ChoseCorrectDoor();
-            //        break;
-
-            //    default:
-            //        break;
-            //}
+            //IPlayer answ1 = new Player();
+            //Player pl = new();
+            //Game game = new();
         }
     }
 }

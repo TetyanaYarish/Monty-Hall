@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using TestProject;
-
+using System.Drawing;
 namespace Monty_Hall
 {
     public class Program
@@ -10,7 +10,7 @@ namespace Monty_Hall
         {
             IPlayer pl = new Player();
             bool start = true;
-            bool continueGame= true;
+           
             do
             {
                 Game.Main(pl);
@@ -18,16 +18,8 @@ namespace Monty_Hall
             }
             while (start);
 
-
-            //Console.WriteLine($"Do you want stay with your door[1] or switch [2]?");
-            //do
-            //{
-            //    Game.ContinueGame(pl);
-            //    break;
-            //}
-            //while (continueGame);
-
             Console.ReadKey();
         }
+        
     }
 }

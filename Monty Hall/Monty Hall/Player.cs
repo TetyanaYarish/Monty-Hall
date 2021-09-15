@@ -10,7 +10,7 @@ namespace TestProject
     public class Player : IPlayer
     {
         
-        public string AnswerChoseNumberOfDoor()
+        public string AnswerChooseNumberOfDoor()
         {
             string answer1 = Console.ReadLine().ToUpper();
            

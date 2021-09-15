@@ -1,0 +1,15 @@
+ [Fact]
+        public void Test()//
+        {
+            string answ = "Goat";
+            IPlayer fakeAnsw = new FakePlayer();
+            Game game = new();
+            game.ReturnPrise();
+            game.Return2Prise();
+            game.Return3Prise();
+            game.ChoseCorrectDoor();
+            var a1=fakeAnsw.AnswerChoseNumberOfDoor();
+            //game.ReturnPrise();
+            Game.ContinueGame(fakeAnsw);
+            Game.Main(fakeAnsw);            
+        }

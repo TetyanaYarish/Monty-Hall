@@ -10,10 +10,10 @@ namespace TestProject
     class FakeDoor : IDoor
     {
 
-        List<string> Titles = new List<string> { "Luxury car", "Goat1", "Goat2" };
+        List<string> Titles = new List<string> { "Luxury car", "Goat", "Goat" };
         public void ReturnAllPrises()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(Titles);
         }
 
         public string YourPrise()

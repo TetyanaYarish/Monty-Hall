@@ -10,7 +10,7 @@ namespace TestProject
     public class FakePlayer : IPlayer
     {
         List<string> fakeAnswer = new List<string>() { "2", "3", "2", "1" };
-        public string AnswerChoseNumberOfDoor()
+        public string AnswerChooseNumberOfDoor()
         {
             var m = fakeAnswer.Count();
             if (m == 0)
