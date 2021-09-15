@@ -8,39 +8,25 @@ namespace Monty_Hall
     {
         public static void Main(string[] args)
         {
-            //IPlayer answ = new Player();
-            //Player pl = new();
-            //Door door1 = new();
-       
-            //Console.WriteLine("Prise behide the door1: XX" );
-            //Console.WriteLine("Prise behide the door2: XX" );
-            //Console.WriteLine("Prise behide the door3: XX");
-            //door1.ReturnAllPrises();
-            Game game = new();
-            //game.ReturnPrise();
-            //game.Return2Prise();
-            //game.Return3Prise();
-            //game.ChoseCorrectDoor();
-            //Console.WriteLine("Chose the number of door [1/2/3].");
-            ////int playerChoice = Convert.ToInt32(Console.ReadLine());
-            //string playerChoice =Console.ReadLine();
-            //switch (playerChoice)
+            IPlayer pl = new Player();
+            bool start = true;
+            bool continueGame= true;
+            do
+            {
+                Game.Main(pl);
+                break;
+            }
+            while (start);
+
+
+            //Console.WriteLine($"Do you want stay with your door[1] or switch [2]?");
+            //do
             //{
-            //    case "1":
-            //       game.PlayerChoseFirstDoor();
-            //        break;
-            //    case "2":
-            //        game.PlayerChoseSecondDoor();
-            //        break;
-            //    case "3":
-            //        game.PlayerChoseThirdDoor();
-            //        break;
-            //    default:
-            //        break;
+            //    Game.ContinueGame(pl);
+            //    break;
             //}
-            
-           
-            Console.WriteLine("Game over");
+            //while (continueGame);
+
             Console.ReadKey();
         }
     }

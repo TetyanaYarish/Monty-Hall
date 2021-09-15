@@ -8,6 +8,7 @@ namespace Monty_Hall
 {
    public interface IPlayer
     {
-        string Answer();
+        string AnswerChoseNumberOfDoor();
+        string AnswerStayOrSwitchTheDoor();
     }
 }

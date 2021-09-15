@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestProject;
 
 namespace Monty_Hall
 {
     public class Game
     {
-       
-        internal string DoorOne { get; }
-        internal string DoorTwo { get; }
-        internal string DoorThree { get; }
         bool prizeInFirstDoor = false;
         bool prizeInSecondDoor = false;
         bool prizeInThirdDoor = false;
         string luxCar = "Luxury car";
-        string goat = "Goat";
-        bool showGoat = false;
       
         Door door = new();
         public string ReturnPrise()
@@ -52,65 +47,135 @@ namespace Monty_Hall
         {
             if (prizeInFirstDoor)
             {
-                Console.WriteLine("First door");
+                Console.Write("First door");
             }
             else if (prizeInSecondDoor)
             {
-                Console.WriteLine("Second door");
+                Console.Write("Second door");
             }
 
             else if (prizeInThirdDoor)
             {
-                Console.WriteLine("Third door");
+                Console.Write("Third door");
             }
         }
         public void PlayerChoseFirstDoor()
         {
-            if (!prizeInSecondDoor && !prizeInThirdDoor)
+            if (!prizeInSecondDoor )
             {
-                Console.WriteLine("Second door or Trird door.");
+                Console.WriteLine("Second door has a goat.");
+            }
+            else if (!prizeInThirdDoor)
+            {
+                Console.WriteLine("Third door has a goat.");
             }
         }
         public void PlayerChoseSecondDoor()
         {
           
-            if (!prizeInFirstDoor || !prizeInThirdDoor)
+            if (!prizeInFirstDoor )
             {
-                Console.WriteLine("First door or Trird door.");
+                Console.WriteLine("First door has a goat.");
+            } 
+            else if (!prizeInThirdDoor)
+            {
+                Console.WriteLine("Third door has a goat.");
             }
            
         }
-        private static Random random = new Random();
-        //public  bool RandomDoorToShowGoat()
-        //{ List<string> myList = new List<Door>() ;
-            
-        //    // add items to the list
-        //    int num = myList.Count();
-        //    Random r = new Random();
-        //    Door randomString = myList[new Random().Next(0, num)];
-        //    return randomString;
-        //}
+       
         public void PlayerChoseThirdDoor()
         {
-            if(!prizeInFirstDoor || !prizeInThirdDoor)
+            if(!prizeInFirstDoor )
             {
-                Console.WriteLine("First door or Second door.");
+                Console.WriteLine("First door has a goat.");
+            }
+             else if(!prizeInThirdDoor)
+            {
+                Console.WriteLine("Third door has a goat.");
             }
         }
-        public void ChoseWhereIsGoat()
+
+   
+        public static void Main(IPlayer answ)
         {
-            if (!prizeInFirstDoor || !prizeInThirdDoor)
+            IPlayer answ1 = new Player();
+            Player pl = new();
+            Door door1 = new();
+
+            Console.WriteLine("Prise behide the door1: XX");
+            Console.WriteLine("Prise behide the door2: XX");
+            Console.WriteLine("Prise behide the door3: XX");
+            door1.ReturnAllPrises();
+            Game game = new();
+            game.ReturnPrise();
+            game.Return2Prise();
+            game.Return3Prise();
+            game.ChoseCorrectDoor();
+            bool continueGame = true;
+            Console.WriteLine("Chose the number of door [1/2/3].");
+            //int playerChoice = Convert.ToInt32(Console.ReadLine());
+            // string playerChoice = Console.ReadLine();// Change this ***
+            string playerChoice = pl.AnswerChoseNumberOfDoor();
+            switch (playerChoice)
             {
-                Console.WriteLine("First door or Trird door");
+                case "1":
+                    game.PlayerChoseFirstDoor();
+                    break;
+                case "2":
+                    game.PlayerChoseSecondDoor();
+                    break;
+                case "3":
+                    game.PlayerChoseThirdDoor();
+                    break;
+                default:
+                    break;
             }
-            else if (!prizeInSecondDoor || !prizeInThirdDoor)
+            Console.WriteLine($"Do you want stay with your door[1] or switch [2]?");
+            do
             {
-                Console.WriteLine("Second door ");
+                Game.ContinueGame(pl);
+                break;
             }
-            else if (prizeInThirdDoor)
+            while (continueGame);
+            string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
+            switch (playerChoice2)
             {
-                Console.WriteLine("Third door");
+                case "1":
+                    Console.Write($"You choose stay. Car was behind  ");
+                    game.ChoseCorrectDoor();
+                    break;
+                case "2":
+                    Console.Write($"You choose switch.Car was behind ");
+                    game.ChoseCorrectDoor();
+                    break;
+
+                default:
+                    break;
             }
+        }
+        public static void ContinueGame(IPlayer answ)
+        {
+           
+            IPlayer answ1 = new Player();
+            Player pl = new();
+            Game game = new();
+          
+            //string playerChoice = pl.AnswerStayOrSwitchTheDoor();
+            //switch (playerChoice)
+            //{
+            //    case "1":
+            //        Console.WriteLine($"You choose stay. Car was behind  ");
+            //        game.ChoseCorrectDoor();
+            //        break;
+            //    case "2":
+            //        Console.WriteLine($"You choose switch.Car was behind ");
+            //        game.ChoseCorrectDoor();
+            //        break;
+
+            //    default:
+            //        break;
+            //}
         }
     }
 }

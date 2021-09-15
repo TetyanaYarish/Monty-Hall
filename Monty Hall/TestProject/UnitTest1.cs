@@ -48,7 +48,7 @@ namespace TestProject
         {
             var yes = "Y";
             FakePlayer fakeAnswer = new FakePlayer();// Call method fake answer
-            string ans = fakeAnswer.Answer();
+            string ans = fakeAnswer.AnswerChoseNumberOfDoor();
             Assert.Equal(yes, ans);
         }
 
@@ -59,7 +59,7 @@ namespace TestProject
         {
             var valOfCards = "Y";
             FakePlayer fakeAnswer = new FakePlayer();// Call method fake answer
-            string ans = fakeAnswer.Answer();
+            string ans = fakeAnswer.AnswerChoseNumberOfDoor();
             Assert.Equal(valOfCards, ans);
         }
         // create counter to run app 
@@ -82,12 +82,10 @@ namespace TestProject
             string prise2 = door.Return2Prise();
             string prise3 = door.Return3Prise();
             door.PlayerChoseFirstDoor();
-            door.RandomDoorToShowGoat();
-             door.ChoseCorrectDoor();
-            Assert.Equal(prize, prise);
-          
+
+            door.ChoseCorrectDoor();
+            Assert.Equal(prize, prise3);
+
         }
-
-
     }
 }
