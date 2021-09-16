@@ -63,10 +63,12 @@ namespace Monty_Hall
         {
             if (!prizeInSecondDoor )
             {
+                Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Second door has a goat.");
             }
             else if (!prizeInThirdDoor)
             {
+                Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Third door has a goat.");
             }
         }
@@ -75,10 +77,12 @@ namespace Monty_Hall
           
             if (!prizeInFirstDoor )
             {
+                Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("First door has a goat.");
             } 
             else if (!prizeInThirdDoor)
             {
+                Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("Third door has a goat.");
             }
            
@@ -88,21 +92,22 @@ namespace Monty_Hall
         {
             if(!prizeInFirstDoor )
             {
+                Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("First door has a goat.");
             }
              else if(!prizeInSecondDoor)
             {
+                Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("Second door has a goat.");
             }
         }
 
    
-        public static void Main(IPlayer answ)
+        public static void Main(IPlayer answ)// Start game
         {
-           // IPlayer answ1 = new Player();
+          
             IPlayer pl = new Player();
             Door door1 = new();
-            string one = "";
             Console.WriteLine("Prize behide the door 1: XX");
             Console.WriteLine("Prize behide the door 2: XX");
             Console.WriteLine("Prize behide the door 3: XX");
@@ -111,7 +116,7 @@ namespace Monty_Hall
             game.ReturnPrize();
             game.Return2Prize();
             game.Return3Prize();
-           // game.ChooseCorrectDoor();
+           // game.ChooseCorrectDoor(); // To check where is prize
             Console.WriteLine("Please choose the door number [1/2/3].");
            // string playerChoice = pl.AnswerChoseNumberOfDoor();
             switch (pl.AnswerChooseNumberOfDoor())//*** Ask Simon, why during testing, I can not call fake answer from FakePlayer.cs?
@@ -135,11 +140,11 @@ namespace Monty_Hall
                 switch (playerChoice2)
                 {
                     case "1":
-                        Console.Write($"You have chosen to stick with your original selection. Your answer is {playerChoice2}. Car was behind ");
+                        Console.Write($"You have chosen to stick with your original selection. Car was behind ");
                         game.ChooseCorrectDoor();
                         break;
                     case "2":
-                        Console.Write($"You have chosen to change your selection. Your answer is {playerChoice2}. Car was behind ");
+                        Console.Write($"You have chosen to change your selection. Car was behind ");
                         game.ChooseCorrectDoor();
                         break;
 

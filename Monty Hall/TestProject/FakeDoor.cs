@@ -10,20 +10,23 @@ namespace TestProject
     class FakeDoor : IDoor
     {
 
-        List<string> Titles = new List<string> { "Luxury car", "Goat", "Goat" };
+        List<string> listOfPrizes = new List<string> { "Luxury car", "Goat", "Goat" };
         public void ReturnAllPrizes()
         {
-            Console.WriteLine(Titles);
+            YourPrize();
         }
 
         public string YourPrize()
         {
-            var prize = "";
-            for (int i = 0; i < Titles.Count(); i++)
+            int num = listOfPrizes.Count();
+            if (num < 1)
             {
-                prize +=prize;
+                return null;
             }
-            return prize;
+            string value = listOfPrizes[num-1];
+            listOfPrizes.Remove(value);//remove prize from list of prizes
+
+            return value;
         }
 
     }

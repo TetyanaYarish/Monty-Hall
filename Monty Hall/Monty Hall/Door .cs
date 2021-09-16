@@ -8,11 +8,11 @@ namespace Monty_Hall
 {
     public class Door:IDoor
     {
-        List<string> Titles = new List<string>{ "Luxury car", "Goat", "Goat" };
+        List<string> listOfPrizes = new List<string>{ "Luxury car", "Goat", "Goat" };
 
          private string Prize;// not allowed to change value of prize.
 
-        public Door(string pr)
+        public Door(string pr)//Constructor to keep prize with 
         {
             Prize = pr;
         }
@@ -26,15 +26,15 @@ namespace Monty_Hall
            
         }
  
-        public string YourPrize()
+        public string YourPrize()//Function, which return randomly prize from list of prizes
         {
-            int num = Titles.Count();
+            int num = listOfPrizes.Count();
             if (num < 1)
             {
                 throw new Exception("We dont have more prizes. ");
             }
-            string value = Titles[new Random().Next(0, num)];
-            Titles.Remove(value);
+            string value = listOfPrizes[new Random().Next(0, num)];
+            listOfPrizes.Remove(value);//remove prize from list of prizes
 
             return value;
         }

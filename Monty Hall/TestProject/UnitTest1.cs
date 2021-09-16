@@ -7,21 +7,15 @@ namespace TestProject
 {
     public class UnitTest1
     {
-
-
-        //   Create test for door
-
         [Fact]
-
         public void TestCheckTheDoor()
         {
             string testDoor = "Goat";//Arrange
             Door door = new(testDoor);//Act
             var door1 = door.YourPrize();
-            Assert.Equal(testDoor, door1);
+            Assert.Equal(testDoor, door1);//Assert
         }
         [Fact]
-
         public void TestCheckTheDoorWithLuxuryCar()
         {
             string testDoor = "Luxury car";//Arrange
@@ -54,27 +48,23 @@ namespace TestProject
 
         // Check if we are open right door with car behind
         [Fact]
-        public void CheckPrize()
+        public void CheckPrize()//with a real random prize
         {
             string prize = "Luxury car";
             Door door = new();
-            string prize = door.YourPrize();
-            Assert.Equal(prize, prize);
+            string prize1 = door.YourPrize();
+            Assert.Equal(prize, prize1);
         }
         [Fact]
-        public void CheckPrize2() // Unrunned test
+        public void CheckPrize2() // Using fake Door class
         {
             string prize = "Luxury car";
             Game door = new();
-            FakePlayer fakeAnsw = new FakePlayer();
-           // IPlayer player = new FakePlayer();
-            Game.Main(fakeAnsw);
-            string prize = door.ReturnPrize();
-            string prize2 = door.Return2Prize();
-            string prize3 = door.Return3Prize();
-            door.PlayerChooseFirstDoor();
-
-            door.ChooseCorrectDoor();
+            IDoor doorFake = new FakeDoor();
+            string prize1 = doorFake.YourPrize();
+            string prize2 = doorFake.YourPrize();
+            string prize3 = doorFake.YourPrize();
+         
             Assert.Equal(prize, prize3);
 
         }
