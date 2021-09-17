@@ -14,6 +14,7 @@ namespace TestProject
         {
             string answer1 = Console.ReadLine().ToUpper();
            
+            
             if (answer1!="1" && answer1 != "2" && answer1 != "3")
             {
                 throw new Exception("You did not choose correct number of door.");

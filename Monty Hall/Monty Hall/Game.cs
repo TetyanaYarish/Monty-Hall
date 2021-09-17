@@ -13,7 +13,11 @@ namespace Monty_Hall
         bool prizeInSecondDoor = false;
         bool prizeInThirdDoor = false;
         string luxCar = "Luxury car";
-      
+        bool one = false;
+        bool two = false;
+        bool three = false;
+        string door2 = "";
+
         Door door = new();
         public string ReturnPrize()
         {
@@ -43,83 +47,106 @@ namespace Monty_Hall
             }
             return door1;
         }
-        public void ChooseCorrectDoor()
+        //public void ChooseCorrectDoor()
+        //{
+        //    if (prizeInFirstDoor)
+        //    {
+        //        Console.WriteLine("1");
+        //    }
+        //    else if (prizeInSecondDoor)
+        //    {
+        //        Console.WriteLine("2");
+        //    }
+
+        //    else if (prizeInThirdDoor)
+        //    {
+        //        Console.WriteLine("3");
+        //    }
+        //}
+        public string ChooseCorrectDoor()
         {
+            string doorWithCar = "";
             if (prizeInFirstDoor)
             {
-                Console.Write("First door");
+                return doorWithCar = "1";
             }
             else if (prizeInSecondDoor)
             {
-                Console.Write("Second door");
+                return doorWithCar = "2";
             }
 
             else if (prizeInThirdDoor)
             {
-                Console.Write("Third door");
+                return doorWithCar = "3";
             }
+            return doorWithCar;
         }
-        public void PlayerChooseFirstDoor()
+        public string PlayerChooseFirstDoor()
         {
-            if (!prizeInSecondDoor )
+            if (!prizeInSecondDoor)
             {
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Second door has a goat.");
+
             }
             else if (!prizeInThirdDoor)
             {
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Third door has a goat.");
             }
+            return door2 = "1";
         }
-        public void PlayerChooseSecondDoor()
+        public string PlayerChooseSecondDoor()
         {
-          
-            if (!prizeInFirstDoor )
+            if (!prizeInFirstDoor)
             {
                 Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("First door has a goat.");
-            } 
+            }
             else if (!prizeInThirdDoor)
             {
                 Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("Third door has a goat.");
             }
-           
-        }
-       
-        public void PlayerChooseThirdDoor()
-        {
-            if(!prizeInFirstDoor )
-            {
-                Console.WriteLine("You have chosen Second door.");
-                Console.WriteLine("First door has a goat.");
-            }
-             else if(!prizeInSecondDoor)
-            {
-                Console.WriteLine("You have chosen Second door.");
-                Console.WriteLine("Second door has a goat.");
-            }
+            return door2 = "2";
         }
 
-   
-        public static void Main(IPlayer answ)// Start game
+        public string PlayerChooseThirdDoor()
         {
-          
+
+            if (!prizeInFirstDoor)
+            {
+                Console.WriteLine("You have chosen Third door.");
+                Console.WriteLine("First door has a goat.");
+            }
+            else if (!prizeInSecondDoor)
+            {
+                Console.WriteLine("You have chosen Third door.");
+                Console.WriteLine("Second door has a goat.");
+            }
+            return door2 = "3";
+        }
+
+
+        public static void RunTheGame(IPlayer answ)// Start game
+        {
+            Game game = new();
+            var d = game.door;
             IPlayer pl = new Player();
             Door door1 = new();
+
             Console.WriteLine("Prize behide the door 1: XX");
             Console.WriteLine("Prize behide the door 2: XX");
             Console.WriteLine("Prize behide the door 3: XX");
             door1.ReturnAllPrizes();
-            Game game = new();
+
             game.ReturnPrize();
             game.Return2Prize();
             game.Return3Prize();
-           // game.ChooseCorrectDoor(); // To check where is prize
+
             Console.WriteLine("Please choose the door number [1/2/3].");
-           // string playerChoice = pl.AnswerChoseNumberOfDoor();
-            switch (pl.AnswerChooseNumberOfDoor())//*** Ask Simon, why during testing, I can not call fake answer from FakePlayer.cs?
+            var ans = pl.AnswerChooseNumberOfDoor();
+            switch (ans)//*** Ask Simon, why during testing, I can not call fake answer from FakePlayer.cs?
             {
                 case "1":
                     game.PlayerChooseFirstDoor();
@@ -132,33 +159,43 @@ namespace Monty_Hall
                     break;
                 default:
                     break;
-                   
             }
-            Console.WriteLine($"Do you want stay with your door [1] or switch [2]?");
-           
-                string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
-                switch (playerChoice2)
-                {
-                    case "1":
-                        Console.Write($"You have chosen to stick with your original selection. Car was behind ");
-                        game.ChooseCorrectDoor();
-                        break;
-                    case "2":
-                        Console.Write($"You have chosen to change your selection. Car was behind ");
-                        game.ChooseCorrectDoor();
-                        break;
+            Console.WriteLine($"Do you want stay with your door [1-yes/2-no]");
 
-                    default:
-                        break;
-                }
-                //Game.ContinueGame(pl);
-              
-        }
-        public static void ContinueGame(IPlayer answ)
-        {
-            //IPlayer answ1 = new Player();
-            //Player pl = new();
-            //Game game = new();
+            string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
+            switch (playerChoice2)
+            {
+                case "1":
+                    Console.WriteLine($"You have chosen to stick with your original selection door number {ans}. Car was behind door number { game.ChooseCorrectDoor()}.");
+                    if (ans == game.ChooseCorrectDoor())
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("CONGRATULATION!");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("You lose!");
+                    }
+                    Console.ResetColor();
+                    break;
+                case "2":
+                    Console.WriteLine($"You have chosen to change your selection door number {ans}. Car was behind door number { game.ChooseCorrectDoor()}.");
+                    if (ans != game.ChooseCorrectDoor())
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("CONGRATULATION!");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("You lose!");
+                    }
+                    Console.ResetColor();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

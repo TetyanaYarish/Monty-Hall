@@ -10,16 +10,26 @@ namespace Monty_Hall
         {
             IPlayer pl = new Player();
             bool start = true;
-           
-            do
+            while (start)
             {
-                Game.Main(pl);
-                break;
+                do
+                {
+                    Game.RunTheGame(pl);
+                    break;
+                }
+                while (start);
+                Console.WriteLine("Do you wish to continue game? [1-yes/2-no]");
+                string playerPLay= Console.ReadLine();
+                if(playerPLay=="1")
+                {
+                    start = true;
+                }
+                else
+                {
+                    return;
+                }
             }
-            while (start);
-
             Console.ReadKey();
         }
-        
     }
 }

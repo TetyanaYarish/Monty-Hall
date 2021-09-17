@@ -28,7 +28,7 @@ namespace TestProject
         [Fact]
         public void CheckFakeAnswer()// Check, if player's answer works
         {
-            var yes = "Y";
+            var yes = "1";
             FakePlayer fakeAnswer = new FakePlayer();// Call method fake answer
             string ans = fakeAnswer.AnswerChooseNumberOfDoor();
             Assert.Equal(yes, ans);
@@ -37,15 +37,14 @@ namespace TestProject
         // Create test to ask player if he woul stay or switch?
 
         [Fact]
-        public void CheckIfFakeAnswerWorks()// Check, if player's answer works
+        public void CheckIfExceptionWorks()// Check, if player's answer works
         {
-            var valOfCards = "1";
-            FakePlayer fakeAnswer = new FakePlayer();// Call method fake answer
-            string ans = fakeAnswer.AnswerChooseNumberOfDoor();
-            Assert.Equal(valOfCards, ans);
+            string expMess = "You did not choose correct answer.";
+            IPlayer fakeAnswer = new FakePlayer();// Call method with fake answer = "3"
+            var exp =Assert.Throws<Exception>(()=> fakeAnswer.AnswerStayOrSwitchTheDoor());
+            Assert.Equal(expMess, exp.Message);
         }
-        // create counter to run app 
-
+       
         // Check if we are open right door with car behind
         [Fact]
         public void CheckPrize()//with a real random prize
@@ -63,12 +62,12 @@ namespace TestProject
             IDoor doorFake = new FakeDoor();
             string prize1 = doorFake.YourPrize();
             string prize2 = doorFake.YourPrize();
-            string prize3 = doorFake.YourPrize();
-         
+            string prize3 = doorFake.YourPrize();// luxury car is here
             Assert.Equal(prize, prize3);
 
         }
         [Fact]
+
         public void TestFakeAnswer()//Pass
         {
             string answ = "1";
@@ -77,13 +76,13 @@ namespace TestProject
             Assert.Equal(answ, answer);
         }
         [Fact]
-        public void Test()//
+        public void TestJustTest()// Testing all functions from fake and real .cs
         {
             string answ = "Luxury car";
             IPlayer fakeAnsw = new FakePlayer();
             Game game = new();
             game.ReturnPrize();
-            var a1=game.Return2Prize();
+            var a1 = game.Return2Prize();
             IDoor door = new FakeDoor();
             door.YourPrize();
             door.ReturnAllPrizes();
