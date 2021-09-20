@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B9NfAtC1Kag5HR3LlCO53gPpkZR9bvnpg8IE7qMI85DQqZVmDdccehKHeeiOdSmG9wr5K+mFYngfO/Wod8qF7Q==",
+  "dgSpecHash": "j9jtUZhNUzz+lZMi3SgxIg5TshN+56prXQ0/RWhC3HFhJM7Se3t7aZBdCUmoZEkPWfro+4J5Qh2MUCp1rqiDIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\Work\\Monty Hall\\Monty-Hall\\Monty Hall\\TestProject\\TestProject.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\My Projects\\Monty Hall\\Monty-Hall\\Monty Hall\\TestProject\\TestProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

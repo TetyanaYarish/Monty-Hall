@@ -47,22 +47,7 @@ namespace Monty_Hall
             }
             return door1;
         }
-        //public void ChooseCorrectDoor()
-        //{
-        //    if (prizeInFirstDoor)
-        //    {
-        //        Console.WriteLine("1");
-        //    }
-        //    else if (prizeInSecondDoor)
-        //    {
-        //        Console.WriteLine("2");
-        //    }
 
-        //    else if (prizeInThirdDoor)
-        //    {
-        //        Console.WriteLine("3");
-        //    }
-        //}
         public string ChooseCorrectDoor()
         {
             string doorWithCar = "";
@@ -135,9 +120,9 @@ namespace Monty_Hall
             IPlayer pl = new Player();
             Door door1 = new();
 
-            Console.WriteLine("Prize behide the door 1: XX");
-            Console.WriteLine("Prize behide the door 2: XX");
-            Console.WriteLine("Prize behide the door 3: XX");
+            Console.WriteLine("Prize behind the door 1: XX");
+            Console.WriteLine("Prize behind the door 2: XX");
+            Console.WriteLine("Prize behind the door 3: XX");
             door1.ReturnAllPrizes();
 
             game.ReturnPrize();
@@ -170,7 +155,7 @@ namespace Monty_Hall
                     if (ans == game.ChooseCorrectDoor())
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("CONGRATULATION!");
+                        Console.WriteLine("CONGRATULATIONS!");
                     }
                     else
                     {
@@ -184,7 +169,8 @@ namespace Monty_Hall
                     if (ans != game.ChooseCorrectDoor())
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("CONGRATULATION!");
+                        Console.WriteLine("CONGRATULATIONS" +
+                            "!");
                     }
                     else
                     {
