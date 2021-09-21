@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
-    public class Door:IDoor
+    public class Prize:IPrize
     {
         List<string> listOfPrizes = new List<string>{ "Luxury car", "Goat", "Goat" };
 
-         private string Prize;// not allowed to change value of prize.
+         private string myPrize;// not allowed to change value of prize.
 
-        public Door(string pr)//Constructor to keep prize with 
+        public Prize(string pr)//Constructor to keep prize with 
         {
-            Prize = pr;
+            myPrize = pr;
         }
-        public Door()
+        public Prize()
         {
 
         }

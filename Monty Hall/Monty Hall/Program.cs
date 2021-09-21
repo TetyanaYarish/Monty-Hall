@@ -10,11 +10,14 @@ namespace Monty_Hall
         {
             IPlayer pl = new Player();
             bool start = true;
+            RunTheGame startGame = new();
+            Game game = new();
+            
             while (start)
             {
                 do
                 {
-                    Game.RunTheGame(pl);
+                    RunTheGame.TheGame(pl);
                     break;
                 }
                 while (start);

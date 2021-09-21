@@ -8,19 +8,21 @@ namespace TestProject
     public class UnitTest1
     {
         [Fact]
-        public void TestCheckTheDoor()
+        public void CheckTheDoorWithGoatTest()
         {
             string testDoor = "Goat";//Arrange
-            Door door = new(testDoor);//Act
+            Prize door = new(testDoor);//Act
             var door1 = door.YourPrize();
             Assert.Equal(testDoor, door1);//Assert
         }
         [Fact]
-        public void TestCheckTheDoorWithLuxuryCar()
+        public void CheckTheDoorWithLuxuryCarTest()
         {
             string testDoor = "Luxury car";//Arrange
-            Door door = new(testDoor);//Act
+            Prize door = new(testDoor);//Act
             var door1 = door.YourPrize();
+            Game game = new();
+           bool result =game.PlayerWon();
             Assert.Equal(testDoor, door1);
         }
 
@@ -37,7 +39,7 @@ namespace TestProject
         // Create test to ask player if he woul stay or switch?
 
         [Fact]
-        public void CheckIfExceptionWorks()// Check, if player's answer works
+        public void CheckIfExceptionWorksTest()// Check, if player's answer works
         {
             string expMess = "You did not choose correct answer.";
             IPlayer fakeAnswer = new FakePlayer();// Call method with fake answer = "3"
@@ -47,19 +49,19 @@ namespace TestProject
        
         // Check if we are open right door with car behind
         [Fact]
-        public void CheckPrize()//with a real random prize
+        public void CheckPrizeTest()//with a real random prize
         {
             string prize = "Luxury car";
-            Door door = new();
+            Prize door = new();
             string prize1 = door.YourPrize();
             Assert.Equal(prize, prize1);
         }
         [Fact]
-        public void CheckPrize2() // Using fake Door class
+        public void CheckPrize2Test() // Using fake Door class
         {
             string prize = "Luxury car";
             Game door = new();
-            IDoor doorFake = new FakeDoor();
+            IPrize doorFake = new FakePrize();
             string prize1 = doorFake.YourPrize();
             string prize2 = doorFake.YourPrize();
             string prize3 = doorFake.YourPrize();// luxury car is here
@@ -68,7 +70,7 @@ namespace TestProject
         }
         [Fact]
 
-        public void TestFakeAnswer()//Pass
+        public void CheckFakeAnswerTest()//Pass
         {
             string answ = "1";
             FakePlayer fakeAnsw = new FakePlayer();
@@ -83,11 +85,27 @@ namespace TestProject
             Game game = new();
             game.ReturnPrize();
             var a1 = game.Return2Prize();
-            IDoor door = new FakeDoor();
+            IPrize door = new FakePrize();
             door.YourPrize();
             door.ReturnAllPrizes();
             game.Return3Prize();
             Assert.Equal(answ, a1);
+        }
+        [Fact]
+        public void GamePlayerWonTest() // Using fake Door class
+        {
+            string prize = "Luxury car";
+            bool playerWon;
+            IPlayer pl = new FakePlayer();
+            IPrize fakeDoor = new FakePrize();
+            string prize1 = fakeDoor.YourPrize();
+            string prize2 = fakeDoor.YourPrize();
+            string prize3 = fakeDoor.YourPrize();// luxury car is here
+            Game game = new Game();
+           // Game.RunTheGame(prize);
+           // var playerWinner = game.PlayerWon();
+            // Assert.Equal(playerWon, prize3);
+
         }
     }
 }

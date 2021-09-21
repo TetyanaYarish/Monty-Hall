@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestProject
 {
-    class FakeDoor : IDoor
+    class FakePrize : IPrize
     {
 
         List<string> listOfPrizes = new List<string> { "Luxury car", "Goat", "Goat" };

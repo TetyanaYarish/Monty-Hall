@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
-    public interface IDoor
+    public interface IPrize
     {
         public void ReturnAllPrizes();
         public string YourPrize();
