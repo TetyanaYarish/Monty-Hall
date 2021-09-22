@@ -16,7 +16,7 @@ namespace Monty_Hall
         bool playerWon = true;
         string door2 = "";
 
-        Prize door = new();
+        RandomPrizeGenerator door = new();
         public string ReturnPrize()
         {
             var door1 = door.YourPrize();
@@ -114,13 +114,7 @@ namespace Monty_Hall
             }
             return door2 = "3";
         }
-        //public void ResultOfGame()
-        //{
-        //    if (prizeInFirstDoor)
-        //    {
 
-        //    }
-        //}
         public string PlayerWon()
         {
             return "CONGRATULATIONS!";

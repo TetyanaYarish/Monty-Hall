@@ -11,11 +11,11 @@ namespace Monty_Hall
     {
         public static void TheGame(IPlayer answ)// Start game
         {
-            IPrize prize = new Prize();
+            IPrize prize = new RandomPrizeGenerator();
             Game game = new();
             
             IPlayer pl = new Player();
-            Prize door1 = new();
+            RandomPrizeGenerator door1 = new();
             RunTheGame start = new();
             door1.ReturnAllPrizes();
             game.ReturnPrize();

@@ -7,22 +7,29 @@ namespace TestProject
 {
     public class UnitTest1
     {
+        //Test check number of prizes
+
         [Fact]
-        public void CheckTheDoorWithGoatTest()
+        public void CheckNumberOfPrizesTest()
         {
-            string testDoor = "Goat";//Arrange
-            Prize door = new(testDoor);//Act
-            var door1 = door.YourPrize();
-            Assert.Equal(testDoor, door1);//Assert
+            RandomPrizeGenerator door = new();//Act
+            door.YourPrize();
+            door.YourPrize();
+            int num2 = door.listOfPrizes.Count();
+            int n = door.CountPrizes();
+            Assert.Equal(1, num2);//Assert
+            Assert.Equal(1, n);//Assert
+            Assert.NotEqual(3, num2);//Assert 
         }
         [Fact]
         public void CheckTheDoorWithLuxuryCarTest()
         {
             string testDoor = "Luxury car";//Arrange
-            Prize door = new(testDoor);//Act
+            bool playerWon = true;
+            RandomPrizeGenerator door = new(testDoor);//Act
             var door1 = door.YourPrize();
             Game game = new();
-           bool result =game.PlayerWon();
+            string result = game.PlayerWon();
             Assert.Equal(testDoor, door1);
         }
 
@@ -43,16 +50,16 @@ namespace TestProject
         {
             string expMess = "You did not choose correct answer.";
             IPlayer fakeAnswer = new FakePlayer();// Call method with fake answer = "3"
-            var exp =Assert.Throws<Exception>(()=> fakeAnswer.AnswerStayOrSwitchTheDoor());
+            var exp = Assert.Throws<Exception>(() => fakeAnswer.AnswerStayOrSwitchTheDoor());
             Assert.Equal(expMess, exp.Message);
         }
-       
+
         // Check if we are open right door with car behind
         [Fact]
         public void CheckPrizeTest()//with a real random prize
         {
             string prize = "Luxury car";
-            Prize door = new();
+            RandomPrizeGenerator door = new();
             string prize1 = door.YourPrize();
             Assert.Equal(prize, prize1);
         }
@@ -102,8 +109,8 @@ namespace TestProject
             string prize2 = fakeDoor.YourPrize();
             string prize3 = fakeDoor.YourPrize();// luxury car is here
             Game game = new Game();
-           // Game.RunTheGame(prize);
-           // var playerWinner = game.PlayerWon();
+            // Game.RunTheGame(prize);
+            // var playerWinner = game.PlayerWon();
             // Assert.Equal(playerWon, prize3);
 
         }

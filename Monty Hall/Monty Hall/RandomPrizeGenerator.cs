@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
-    public class Prize:IPrize
+    public class RandomPrizeGenerator:IPrize
     {
-        List<string> listOfPrizes = new List<string>{ "Luxury car", "Goat", "Goat" };
+        public List<string> listOfPrizes = new List<string>{ "Luxury car", "Goat", "Goat" };
 
          private string myPrize;// not allowed to change value of prize.
 
-        public Prize(string pr)//Constructor to keep prize with 
+        public RandomPrizeGenerator(string pr)//Constructor to keep prize with **For testing propose
         {
             myPrize = pr;
         }
-        public Prize()
+        public RandomPrizeGenerator()
         {
 
         }
@@ -37,6 +37,11 @@ namespace Monty_Hall
             listOfPrizes.Remove(value);//remove prize from list of prizes
 
             return value;
+        }
+        public int CountPrizes()// Just for testing propose
+        {
+            int number=listOfPrizes.Count();
+            return number;
         }
     }
 }
