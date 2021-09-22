@@ -9,27 +9,30 @@ namespace Monty_Hall
     {
         public static void Main(string[] args)
         {
-            IPlayer answ = new FakePlayerAndAnswer();
-            Prise price = new();
-            price.GetPrice();
-            Doors doors = new();
-            doors.GetDoor();
+            IPlayer pl = new Player();
+            bool start = true;
+            RunTheGame startGame = new();
             Game game = new();
-            var door = Enum.GetValues(typeof(doorsEnum)).Cast<doorsEnum>();
-           door.ToList();
-            //game.ReturnPrise();
-            //doors.RandomDoor();
-            Console.WriteLine("Do you want to stay with this door? [Y/N]");
-            while (answ.Answer() == "Y")
+            IPrize pr = new RandomPrizeGenerator();
+            while (start)
             {
-                Console.WriteLine("Your prise is: " + price.YourPrise());
+                do
+                {
+                    RunTheGame.TheGame(pl);
+                    break;
+                }
+                while (start);
+                Console.WriteLine("Do you wish to continue game? [1-yes/2-no]");
+                string playerPLay = Console.ReadLine();
+                if (playerPLay == "1")
+                {
+                    start = true;
+                }
+                else
+                {
+                    return;
+                }
             }
-            while (answ.Answer() == "N")
-            {
-                Console.WriteLine("Your prise is: " + price.YourPrise());
-            }
-
-            Console.Write("Game over");
             Console.ReadKey();
         }
     }

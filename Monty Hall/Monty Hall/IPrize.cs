@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
-    public interface IPlayer
+    public interface IPrize
     {
-        string AnswerChooseNumberOfDoor();
-        string AnswerStayOrSwitchTheDoor();
+        public void ReturnAllPrizes();
+        public string YourPrize();
     }
 }
+

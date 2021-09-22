@@ -9,18 +9,32 @@ namespace TestProject
 {
     public class FakePlayer : IPlayer
     {
-        List<string> fakeAnswer = new List<string>() { "N", "Y", "Y", "Y" };
-        public string Answer()
+        List<string> fakeAnswer = new List<string>() {  "2", "1", "2", "3" };
+       
+        public string AnswerChooseNumberOfDoor()
         {
             var m = fakeAnswer.Count();
             if (m == 0)
             {
-                return "N";
-                // throw Exception 
+                throw new Exception("You did not choose correct answer.");
             }
-            var answ = fakeAnswer[m - 1];//throw Exception
+            var answ = fakeAnswer[m - 1];
             fakeAnswer.Remove(answ);
             return answ;
         }
+
+        public string AnswerStayOrSwitchTheDoor()
+        {
+            var m = fakeAnswer.Count();
+            var answ = fakeAnswer[m - 1];
+            fakeAnswer.Remove(answ);
+            if (answ=="3")
+            {
+                throw new Exception("You did not choose correct answer.");
+            }
+           
+            return answ;
+        }
+
     }
-}
+    }
