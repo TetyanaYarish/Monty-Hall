@@ -6,59 +6,59 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
+   
     public class Game
     {
-
-        bool prizeInFirstDoor = false;
-        bool prizeInSecondDoor = false;
-        bool prizeInThirdDoor = false;
+        public bool carInFirstDoor = false;
+        public bool carInSecondDoor = false;//**
+        public bool carInThirdDoor = false;
         string luxCar = "Luxury car";
         bool playerWon;
         string door2 = "";
-
-        RandomPrizeGenerator door = new();
-        public string ReturnPrize()
+       
+        RandomPrizeGenerator prize = new();
+        public string ReturnPrizeBehindFirstDoor(IPrize prize)
         {
-            var door1 = door.YourPrize();
+            var door1 = prize.YourPrize();
             if (door1 == luxCar)
             {
-                prizeInFirstDoor = true;
+                carInFirstDoor = true;
             }
             return door1;
         }
-        public string Return2Prize()
+        public string ReturnPrizeBehindSecondDoor(IPrize prize)
         {
-            var door1 = door.YourPrize();
+            var door1 = prize.YourPrize();
             if (door1 == luxCar)
             {
-                prizeInSecondDoor = true;
-            }
-            return door1;
-        }
-
-        public string Return3Prize()
-        {
-            var door1 = door.YourPrize();
-            if (door1 == luxCar)
-            {
-                prizeInThirdDoor = true;
+                carInSecondDoor = true;
             }
             return door1;
         }
 
-        public string ChooseCorrectDoor()
+        public string ReturnPrizeBehindThirdDoor(IPrize prize)
+        {
+            var door1 = prize.YourPrize();
+            if (door1 == luxCar)
+            {
+                carInThirdDoor = true;
+            }
+            return door1;
+        }
+
+        public string DoorWithCarBehind()
         {
             string doorWithCar = "";
-            if (prizeInFirstDoor)
+            if (carInFirstDoor)
             {
                 return doorWithCar = "1";
             }
-            else if (prizeInSecondDoor)
+            else if (carInSecondDoor)
             {
                 return doorWithCar = "2";
             }
 
-            else if (prizeInThirdDoor)
+            else if (carInThirdDoor)
             {
                 return doorWithCar = "3";
             }
@@ -66,64 +66,68 @@ namespace Monty_Hall
         }
         public string PlayerChooseFirstDoor()
         {
-            if (!prizeInSecondDoor)
+            if (!carInSecondDoor)
             {
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Second door has a goat.");
-                //  prizeInSecondDoor = false;
             }
-            else if (!prizeInThirdDoor)
+            else if (!carInThirdDoor)
             {
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Third door has a goat.");
-                //  prizeInThirdDoor = false;
             }
             return door2 = "1";
         }
         public string PlayerChooseSecondDoor()
         {
-            if (!prizeInFirstDoor)
+            if (!carInFirstDoor)
             {
                 Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("First door has a goat.");
-                //  prizeInFirstDoor = false;
             }
-            else if (!prizeInThirdDoor)
+            else if (!carInThirdDoor)
             {
                 Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("Third door has a goat.");
-                // prizeInThirdDoor = false;
             }
             return door2 = "2";
         }
 
         public string PlayerChooseThirdDoor()
         {
-
-            if (!prizeInFirstDoor)
+            if (!carInFirstDoor)
             {
                 Console.WriteLine("You have chosen Third door.");
                 Console.WriteLine("First door has a goat.");
-                prizeInFirstDoor = false;
+                carInFirstDoor = false;
             }
-            else if (!prizeInSecondDoor)
+            else if (!carInSecondDoor)
             {
                 Console.WriteLine("You have chosen Third door.");
                 Console.WriteLine("Second door has a goat.");
-                prizeInSecondDoor = false;
+                carInSecondDoor = false;
             }
             return door2 = "3";
         }
 
-        public string PlayerWon()
+        public bool PlayerWon()
         {
-            playerWon = true;
-            return "CONGRATULATIONS!";
+            return playerWon = true;
         }
-        public string PlayerLose()
+        public bool PlayerLose()
         {
-            playerWon = false;
-            return "You lose!";
+            return playerWon = false;
+        }
+        public void ResultGame()
+        {
+            if(playerWon)
+            {
+                Console.WriteLine("CONGRATULATIONS!");
+            }
+            else if (!playerWon)
+            {
+                Console.WriteLine("You lose!");
+            }
         }
     }
 }

@@ -13,18 +13,18 @@ namespace Monty_Hall
             bool start = true;
             RunTheGame startGame = new();
             Game game = new();
-            IPrize pr = new RandomPrizeGenerator();
+            Console.WriteLine(startGame.Greetings());
+      
             while (start)
             {
                 do
                 {
-                    RunTheGame.TheGame(pl);
+                    RunTheGame.StartGame(pl);
                     break;
                 }
                 while (start);
                 Console.WriteLine("Do you wish to continue game? [1-yes/2-no]");
-                string playerPLay = Console.ReadLine();
-                if (playerPLay == "1")
+                if (pl.AnswerStayOrSwitchTheDoor() == "1")
                 {
                     start = true;
                 }

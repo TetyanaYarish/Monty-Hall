@@ -7,22 +7,21 @@ using TestProject;
 
 namespace Monty_Hall
 {
-   public  class RunTheGame
+    public class RunTheGame
     {
-        public static void TheGame(IPlayer pl)// Start game
+        public static void StartGame(IPlayer pl)// Start game
         {
-           // IPrize prize = new RandomPrizeGenerator();
+            // IPrize prize = new RandomPrizeGenerator();
             Game game = new();
-            
-           //IPlayer pl = new Player();
-            RandomPrizeGenerator door1 = new();
-            RunTheGame start = new();
-            door1.ReturnAllPrizes();
-            game.ReturnPrize();
-            game.Return2Prize();
-            game.Return3Prize();
 
-            Console.WriteLine(start.StartGame() + "Please choose the door number [1/2/3].");
+            //IPlayer pl = new Player();
+            RandomPrizeGenerator prize = new();
+            RunTheGame start = new();
+            game.ReturnPrizeBehindFirstDoor(prize);
+            game.ReturnPrizeBehindSecondDoor(prize);
+            game.ReturnPrizeBehindThirdDoor(prize);
+
+            Console.WriteLine("Please choose the door number [1/2/3].");
             var ans = pl.AnswerChooseNumberOfDoor();
             switch (ans)
             {
@@ -44,31 +43,36 @@ namespace Monty_Hall
             switch (playerChoice2)
             {
                 case "1":
-                    Console.WriteLine($"You have chosen to stick with your door number {ans}. Car was behind door number { game.ChooseCorrectDoor()}.");
-                    if (ans == game.ChooseCorrectDoor())
+                    Console.WriteLine($"You have chosen to stick with your door number {ans}. Car was behind door number { game.DoorWithCarBehind()}.");
+                    if (ans == game.DoorWithCarBehind())
                     {
+
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(game.PlayerWon());
+                        game.PlayerWon();
+                        game.ResultGame();
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine(game.PlayerLose());
-
+                        game.PlayerLose();
+                        game.ResultGame();
                     }
                     Console.ResetColor();
                     break;
                 case "2":
-                    Console.WriteLine($"You have chosen to change your door number {ans}. Car was behind door number { game.ChooseCorrectDoor()}.");
-                    if (ans != game.ChooseCorrectDoor())
+                    Console.WriteLine($"You have chosen to switch your door number {ans}. Car was behind door number { game.DoorWithCarBehind()}.");
+                    if (ans != game.DoorWithCarBehind())
                     {
+
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(game.PlayerWon());
+                        game.PlayerWon();
+                        game.ResultGame();
                     }
                     else
                     {
+                        game.PlayerLose();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine(game.PlayerLose());
+                        game.ResultGame();
                     }
                     Console.ResetColor();
                     break;
@@ -76,9 +80,9 @@ namespace Monty_Hall
                     break;
             }
         }
-        public string StartGame()
+        public string Greetings()
         {
-            return "Prize behind the door 1: XX\nPrize behind the door 2: XX\nPrize behind the door 3: XX\n";
+            return "THIS IS THE MONTY HALL GAME!\n\nPrize behind the door 1: XX\nPrize behind the door 2: XX\nPrize behind the door 3: XX\n";
         }
     }
 }

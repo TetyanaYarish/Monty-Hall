@@ -10,14 +10,9 @@ namespace Monty_Hall
     {
         public List<string> listOfPrizes = new List<string> { "Luxury car", "Goat", "Goat" };
 
-        public RandomPrizeGenerator()
-        {
-
-        }
         public void ReturnAllPrizes()
         {
             var prize1 = YourPrize();
-
         }
 
         public string YourPrize()//Function, which return randomly prize from list of prizes
@@ -32,14 +27,15 @@ namespace Monty_Hall
 
             return value;
         }
+        public IPrize ReturnYourPrize(IPrize prize)
+        {
+            return prize;
+        }
         public int CountPrizes()// Just for testing propose
         {
             int number = listOfPrizes.Count();
             return number;
         }
-        public IPrize ReturnYourPrize(IPrize prize)
-        {
-            return prize;
-        }
+       
     }
 }
