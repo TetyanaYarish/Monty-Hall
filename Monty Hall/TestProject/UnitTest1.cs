@@ -75,7 +75,7 @@ namespace TestProject
             //string prize2 = fakePrize.YourPrize();
             string prize3 = fakePrize.YourPrize();
             var co=game.ReturnPrizeBehindThirdDoor(fakePrize);
-            game.ResultGame();
+            game.ResultOfGame();
             var won=game.PlayerWon();
             var lose = game.PlayerLose();
             var won1 = game.PlayerWon();

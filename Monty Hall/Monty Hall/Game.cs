@@ -118,7 +118,7 @@ namespace Monty_Hall
         {
             return playerWon = false;
         }
-        public void ResultGame()
+        public void ResultOfGame()
         {
             if(playerWon)
             {

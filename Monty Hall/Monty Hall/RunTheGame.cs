@@ -49,13 +49,13 @@ namespace Monty_Hall
 
                         Console.ForegroundColor = ConsoleColor.Red;
                         game.PlayerWon();
-                        game.ResultGame();
+                        game.ResultOfGame();
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         game.PlayerLose();
-                        game.ResultGame();
+                        game.ResultOfGame();
                     }
                     Console.ResetColor();
                     break;
@@ -66,13 +66,13 @@ namespace Monty_Hall
 
                         Console.ForegroundColor = ConsoleColor.Red;
                         game.PlayerWon();
-                        game.ResultGame();
+                        game.ResultOfGame();
                     }
                     else
                     {
                         game.PlayerLose();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        game.ResultGame();
+                        game.ResultOfGame();
                     }
                     Console.ResetColor();
                     break;
