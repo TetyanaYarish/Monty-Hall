@@ -19,31 +19,31 @@ namespace Monty_Hall
         RandomPrizeGenerator prize = new();
         public string ReturnPrizeBehindFirstDoor(IPrize prize)
         {
-            var door1 = prize.YourPrize();
-            if (door1 == luxCar)
+            var newPrize = prize.YourPrize();
+            if (newPrize == luxCar)
             {
                 carInFirstDoor = true;
             }
-            return door1;
+            return newPrize;
         }
         public string ReturnPrizeBehindSecondDoor(IPrize prize)
         {
-            var door1 = prize.YourPrize();
-            if (door1 == luxCar)
+            var newPrize = prize.YourPrize();
+            if (newPrize == luxCar)
             {
                 carInSecondDoor = true;
             }
-            return door1;
+            return newPrize;
         }
 
         public string ReturnPrizeBehindThirdDoor(IPrize prize)
         {
-            var door1 = prize.YourPrize();
-            if (door1 == luxCar)
+            var newPrize = prize.YourPrize();
+            if (newPrize == luxCar)
             {
                 carInThirdDoor = true;
             }
-            return door1;
+            return newPrize;
         }
 
         public string DoorWithCarBehind()
@@ -118,16 +118,20 @@ namespace Monty_Hall
         {
             return playerWon = false;
         }
-        public void ResultOfGame()
+        public bool ResultOfGame()
         {
+            bool playerWinner=true;
             if(playerWon)
             {
+                playerWinner = true;
                 Console.WriteLine("CONGRATULATIONS!");
             }
             else if (!playerWon)
             {
+                playerWinner = false;
                 Console.WriteLine("You lose!");
             }
+            return playerWinner;
         }
     }
 }

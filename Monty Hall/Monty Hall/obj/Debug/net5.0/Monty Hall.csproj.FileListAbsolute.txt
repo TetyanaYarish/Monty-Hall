@@ -5,7 +5,6 @@ C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\bin\Debug
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\bin\Debug\net5.0\Monty Hall.dll
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\bin\Debug\net5.0\ref\Monty Hall.dll
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\bin\Debug\net5.0\Monty Hall.pdb
-C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.AssemblyInfoInputs.cache
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.AssemblyInfo.cs
@@ -14,3 +13,4 @@ C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\ref\Monty Hall.dll
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.pdb
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.genruntimeconfig.cache
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\Monty Hall\obj\Debug\net5.0\Monty Hall.csproj.AssemblyReference.cache

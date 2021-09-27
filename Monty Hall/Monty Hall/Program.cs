@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using TestProject;
-using TestProject;
+using ConsoleApp1;
 
 namespace Monty_Hall
 {
@@ -11,9 +11,9 @@ namespace Monty_Hall
         {
             IPlayer pl = new Player();
             bool start = true;
-            RunTheGame startGame = new();
             Game game = new();
-            Console.WriteLine(startGame.Greetings());
+           // Main1 message = new MontyHall();
+            Console.WriteLine(new RunTheGame().Greetings());
       
             while (start)
             {

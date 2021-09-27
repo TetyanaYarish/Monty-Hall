@@ -1671,9 +1671,22 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
+      "ConsoleApp1/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ConsoleApp1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp1.dll": {}
+        }
+      },
       "Monty Hall/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "ConsoleApp1": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Monty Hall.dll": {}
         },
@@ -5917,6 +5930,11 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
+    "ConsoleApp1/1.0.0": {
+      "type": "project",
+      "path": "../ConsoleApp1/ConsoleApp1.csproj",
+      "msbuildProject": "../ConsoleApp1/ConsoleApp1.csproj"
+    },
     "Monty Hall/1.0.0": {
       "type": "project",
       "path": "../Monty Hall/Monty Hall.csproj",
@@ -6011,7 +6029,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

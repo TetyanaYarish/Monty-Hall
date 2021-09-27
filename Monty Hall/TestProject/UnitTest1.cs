@@ -28,6 +28,8 @@ namespace TestProject
         {
             string testDoor = "Luxury car";//Arrange
             RandomPrizeGenerator door = new();//Act
+            door.YourPrize();
+            door.YourPrize();
             var door1 = door.YourPrize();
             Assert.Equal(testDoor, door1);
         }
@@ -38,11 +40,11 @@ namespace TestProject
         {
             Game game = new();
             IPrize prize1 = new FakePrize();
-            var one=prize1.YourPrize();
             prize1.YourPrize();
-           var n= game.ReturnPrizeBehindFirstDoor(prize1);
-            var t=game.carInFirstDoor;
-            Assert.True( t);
+            prize1.YourPrize();
+            var n = game.ReturnPrizeBehindFirstDoor(prize1);
+            bool t = game.carInFirstDoor;
+            Assert.True(t);
         }
 
         // Create test to ask player if he woul stay or switch?
@@ -66,87 +68,62 @@ namespace TestProject
             Assert.Equal(prize, prize1);
         }
         [Fact]
-        public void CheckPrize2Test() // Using fake Prize class** 
+        public void CheckIfPlayerWonTestUsingRandomPrizeGeneratorClass() // Using real Prize class but fake answer** ASK Simon
         {
-            string prize = "Luxury car";
+            bool playerWon = false;
             Game game = new();
-            IPrize fakePrize = new FakePrize();
-            string prize1 = fakePrize.YourPrize();
-            //string prize2 = fakePrize.YourPrize();
-            string prize3 = fakePrize.YourPrize();
-            var co=game.ReturnPrizeBehindThirdDoor(fakePrize);
-            game.ResultOfGame();
-            var won=game.PlayerWon();
-            var lose = game.PlayerLose();
-            var won1 = game.PlayerWon();
-
-            // luxury car is here
-            Assert.Equal(prize, prize3);
+            IPlayer fakeplayer = new FakePlayer();
+            RunTheGame.StartGame(fakeplayer); //Player chooses door #3 and then switched the door 
+            bool res = game.ResultOfGame();
+            Assert.Equal(playerWon, res);
         }
+        
         [Fact]
-        public void TestRandomPrizeGeneratorClass()
+        public void GreetingMessages()
         {
-            RandomPrizeGenerator prize = new();
-            IPrize prize1 = new FakePrize();
-            prize.ReturnYourPrize(prize1);
-        }
-
-        [Fact]
-        public void TestJustGameClassTest()// Testing all functions from fake and real .cs
-        {
-
-            Game game = new();
-            IPrize prize = new FakePrize();
-            var pr = prize.YourPrize();
-            game.ReturnPrizeBehindFirstDoor(prize);
-            game.ReturnPrizeBehindSecondDoor(prize);
-            game.ReturnPrizeBehindThirdDoor(prize);
-            var first = game.PlayerChooseFirstDoor();
-            var second = game.PlayerChooseSecondDoor();
-            var third = game.PlayerChooseThirdDoor();
-            var playerLose = game.PlayerLose();
-            var playerWon = game.PlayerWon();
-            var door = game.DoorWithCarBehind();
-
-            //Assert.Equal(answ,);
-        }
-        [Fact]
-        public void TestJustPlayerClass()
-        {
-                string one = "1";
-                FakePlayer fakeplayer = new FakePlayer();
-                IPrize fakePrize = new FakePrize();
-                var numberOfDoor = fakeplayer.AnswerChooseNumberOfDoor();
-                var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();
-                Game game = new();
-                RandomPrizeGenerator pr = new();
-                RunTheGame runTheGame = new();
-                var start = runTheGame.Greetings();
-                fakePrize.YourPrize();
-                RunTheGame.StartGame(fakeplayer);
-           
-        }
-        [Fact]
-        public void TestJustRunTheGameClass()
-        {
-            Game game = new();
+            string greeting= "THIS IS THE MONTY HALL GAME!\n\nPrize behind the door 1: XX\nPrize behind the door 2: XX\nPrize behind the door 3: XX\n";
             RunTheGame runGame = new();
+            var start = runGame.Greetings();
+            Assert.Equal(greeting, start);
+        }
+        [Fact]
+        public void TestJustAllClassesAndFunctions()
+        {
+            IPlayer fakeplayer = new FakePlayer();
+            IPrize fakePrize = new FakePrize();
+            var numberOfDoor = fakeplayer.AnswerChooseNumberOfDoor();
+            var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();
+            Game game = new();
+            RandomPrizeGenerator randomPrize = new();
+            RunTheGame runGame = new();
+            var start = runGame.Greetings();
+            RunTheGame.StartGame(fakeplayer);
+            var pr00 = fakePrize.YourPrize(); //null
+            var pr0 = fakePrize.YourPrize(); //Goat
+            var pr1 = game.ReturnPrizeBehindFirstDoor(fakePrize); //LC
+            var pr2 = game.ReturnPrizeBehindSecondDoor(fakePrize); //null
+            var pr3 = game.ReturnPrizeBehindThirdDoor(fakePrize); //null
+            var first = game.PlayerChooseFirstDoor(); //1
+            var second = game.PlayerChooseSecondDoor(); //2
+            var third = game.PlayerChooseThirdDoor(); //3
+            var playerLose = game.PlayerLose(); //False
+            var playerWon = game.PlayerWon(); //True
+            var door = game.DoorWithCarBehind(); //!
             runGame.Greetings();
             RandomPrizeGenerator generator = new();
-            IPlayer player =new FakePlayer();
-            RunTheGame.StartGame(player);
+            IPlayer player = new FakePlayer();// Double
+            RunTheGame.StartGame(player);//Double
             IPrize prize1 = new FakePrize();
             IPrize prize2 = new FakePrize();
             IPrize prize3 = new FakePrize();
-
-            game.ReturnPrizeBehindFirstDoor(prize1);
+            game.ReturnPrizeBehindFirstDoor(prize1); //LC and Goat 1
             game.ReturnPrizeBehindSecondDoor(prize2);
             game.ReturnPrizeBehindThirdDoor(prize3);
             generator.ReturnAllPrizes();
             game.PlayerWon();
-            var corr=game.DoorWithCarBehind();
-            var n=corr.Count();
-            var m=corr.Contains("l");
+            var corr = game.DoorWithCarBehind();
+            var n = corr.Count();
+            var m = corr.Contains("l");
         }
     }
 }

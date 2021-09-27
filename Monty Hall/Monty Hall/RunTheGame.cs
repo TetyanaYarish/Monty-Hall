@@ -11,10 +11,7 @@ namespace Monty_Hall
     {
         public static void StartGame(IPlayer pl)// Start game
         {
-            // IPrize prize = new RandomPrizeGenerator();
             Game game = new();
-
-            //IPlayer pl = new Player();
             RandomPrizeGenerator prize = new();
             RunTheGame start = new();
             game.ReturnPrizeBehindFirstDoor(prize);
@@ -63,7 +60,6 @@ namespace Monty_Hall
                     Console.WriteLine($"You have chosen to switch your door number {ans}. Car was behind door number { game.DoorWithCarBehind()}.");
                     if (ans != game.DoorWithCarBehind())
                     {
-
                         Console.ForegroundColor = ConsoleColor.Red;
                         game.PlayerWon();
                         game.ResultOfGame();
