@@ -44,7 +44,7 @@ namespace Monty_Hall
             return newPrize;
         }
 
-        public string ReturnPrizeBehindThirdDoor()
+        public string CheckIfCarBehindTheThirdDoor()
         {
             var newPrize = prize.YourPrize();
             if (newPrize == luxCar)
@@ -72,7 +72,7 @@ namespace Monty_Hall
             }
             return doorWithCar;
         }
-        public string PlayerChooseFirstDoor()
+        public void PlayerChooseFirstDoor()
         {
             if (!carInSecondDoor)
             {
@@ -84,9 +84,11 @@ namespace Monty_Hall
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Third door has a goat.");
             }
-            return door = "1";
+            // return door = "1"; //a
+            //door = "1";  //b
+            //return door; //b
         }
-        public string PlayerChooseSecondDoor()
+        public void PlayerChooseSecondDoor()
         {
             if (!carInFirstDoor)
             {
@@ -98,9 +100,7 @@ namespace Monty_Hall
                 Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("Third door has a goat.");
             }
-            return door = "2";
         }
-
         public string PlayerChooseThirdDoor()
         {
             if (!carInFirstDoor)

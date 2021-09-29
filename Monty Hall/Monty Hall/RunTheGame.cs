@@ -12,11 +12,9 @@ namespace Monty_Hall
         public static void StartGame(IPlayer pl)// Start game
         {
             Game game = new();
-            RandomPrizeGenerator prize = new();
-            RunTheGame start = new();
             game.CheckIfCarBehindTheFirstDoor();
-           // game.ReturnPrizeBehindSecondDoor(prize);
-            game.ReturnPrizeBehindThirdDoor();
+            game.CheckIfCarBehindTheSecondDoor();
+            game.CheckIfCarBehindTheThirdDoor();
 
             Console.WriteLine("Please choose the door number [1/2/3].");
             var ans = pl.AnswerChooseNumberOfDoor();
