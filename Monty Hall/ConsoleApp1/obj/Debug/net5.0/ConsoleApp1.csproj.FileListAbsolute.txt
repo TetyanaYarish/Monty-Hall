@@ -13,3 +13,4 @@ C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\ConsoleApp1\obj\Debu
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\ConsoleApp1\obj\Debug\net5.0\ref\ConsoleApp1.dll
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.pdb
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.genruntimeconfig.cache
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.csproj.AssemblyReference.cache

@@ -105,3 +105,9 @@ C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\obj\Debu
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\obj\Debug\net5.0\ref\TestProject.dll
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\obj\Debug\net5.0\TestProject.pdb
 C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\obj\Debug\net5.0\TestProject.genruntimeconfig.cache
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\bin\Debug\net5.0\ConsoleApp1.deps.json
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.json
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\bin\Debug\net5.0\ConsoleApp1.exe
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\bin\Debug\net5.0\ConsoleApp1.dll
+C:\Users\User\Desktop\Work\Monty Hall\Monty-Hall\Monty Hall\TestProject\bin\Debug\net5.0\ConsoleApp1.pdb

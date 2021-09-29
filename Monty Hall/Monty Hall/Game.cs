@@ -9,15 +9,23 @@ namespace Monty_Hall
    
     public class Game
     {
+        IPrize prize;
         public bool carInFirstDoor = false;
         public bool carInSecondDoor = false;//**
         public bool carInThirdDoor = false;
         string luxCar = "Luxury car";
         bool playerWon;
-        string door2 = "";
-       
-        RandomPrizeGenerator prize = new();
-        public string ReturnPrizeBehindFirstDoor(IPrize prize)
+        string door = "";
+        RandomPrizeGenerator prize1 = new();
+        public Game(IPrize prize2)
+        {
+            prize = prize2;
+        }
+        public Game()
+        {
+            prize = new RandomPrizeGenerator();
+        }
+        public string CheckIfCarBehindTheFirstDoor()// ** check constructor Game (2 vers) in BJ 
         {
             var newPrize = prize.YourPrize();
             if (newPrize == luxCar)
@@ -26,7 +34,7 @@ namespace Monty_Hall
             }
             return newPrize;
         }
-        public string ReturnPrizeBehindSecondDoor(IPrize prize)
+        public string CheckIfCarBehindTheSecondDoor()
         {
             var newPrize = prize.YourPrize();
             if (newPrize == luxCar)
@@ -36,7 +44,7 @@ namespace Monty_Hall
             return newPrize;
         }
 
-        public string ReturnPrizeBehindThirdDoor(IPrize prize)
+        public string ReturnPrizeBehindThirdDoor()
         {
             var newPrize = prize.YourPrize();
             if (newPrize == luxCar)
@@ -76,7 +84,7 @@ namespace Monty_Hall
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Third door has a goat.");
             }
-            return door2 = "1";
+            return door = "1";
         }
         public string PlayerChooseSecondDoor()
         {
@@ -90,7 +98,7 @@ namespace Monty_Hall
                 Console.WriteLine("You have chosen Second door.");
                 Console.WriteLine("Third door has a goat.");
             }
-            return door2 = "2";
+            return door = "2";
         }
 
         public string PlayerChooseThirdDoor()
@@ -107,7 +115,7 @@ namespace Monty_Hall
                 Console.WriteLine("Second door has a goat.");
                 carInSecondDoor = false;
             }
-            return door2 = "3";
+            return door = "3";
         }
 
         public bool PlayerWon()

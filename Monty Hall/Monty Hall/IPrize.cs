@@ -8,7 +8,7 @@ namespace Monty_Hall
 {
     public interface IPrize
     {
-        public void ReturnAllPrizes();
+       // public void DoorWithPrize();
         public string YourPrize();
     }
 }

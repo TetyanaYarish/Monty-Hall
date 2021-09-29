@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "Monty Hall/1.0.0": {
+        "dependencies": {
+          "ConsoleApp1": "1.0.0"
+        },
         "runtime": {
           "Monty Hall.dll": {}
+        }
+      },
+      "ConsoleApp1/1.0.0": {
+        "runtime": {
+          "ConsoleApp1.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Monty Hall/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsoleApp1/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

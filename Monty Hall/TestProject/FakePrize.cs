@@ -10,8 +10,8 @@ namespace TestProject
     class FakePrize : IPrize
     {
 
-        List<string> listOfPrizes = new List<string> { "Luxury car", "Goat1", "Goat2" };
-        public void ReturnAllPrizes()
+        List<string> listOfPrizes = new List<string> { "Luxury car", "Luxury car", "Luxury car" };
+        public void DoorWithPrize()
         {
             YourPrize();
         }

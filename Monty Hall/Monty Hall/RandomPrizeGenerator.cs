@@ -10,10 +10,10 @@ namespace Monty_Hall
     {
         public List<string> listOfPrizes = new List<string> { "Luxury car", "Goat", "Goat" };
 
-        public void ReturnAllPrizes()
-        {
-            var prize1 = YourPrize();
-        }
+        //public void DoorWithPrize()
+        //{
+        //    var prize1 = YourPrize();
+        //}
 
         public string YourPrize()//Function, which return randomly prize from list of prizes
         {
@@ -36,6 +36,5 @@ namespace Monty_Hall
             int number = listOfPrizes.Count();
             return number;
         }
-       
     }
 }

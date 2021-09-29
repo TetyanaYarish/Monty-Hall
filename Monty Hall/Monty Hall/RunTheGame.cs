@@ -14,9 +14,9 @@ namespace Monty_Hall
             Game game = new();
             RandomPrizeGenerator prize = new();
             RunTheGame start = new();
-            game.ReturnPrizeBehindFirstDoor(prize);
-            game.ReturnPrizeBehindSecondDoor(prize);
-            game.ReturnPrizeBehindThirdDoor(prize);
+            game.CheckIfCarBehindTheFirstDoor();
+           // game.ReturnPrizeBehindSecondDoor(prize);
+            game.ReturnPrizeBehindThirdDoor();
 
             Console.WriteLine("Please choose the door number [1/2/3].");
             var ans = pl.AnswerChooseNumberOfDoor();
