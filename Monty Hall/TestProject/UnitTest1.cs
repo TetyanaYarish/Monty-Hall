@@ -47,11 +47,11 @@ namespace TestProject
         {
             IPrize prize1 = new FakePrize();
             Game game = new(prize1);
-            prize1.YourPrize();
-            prize1.YourPrize();
-            var n = game.CheckIfCarBehindTheFirstDoor();
-            bool t = game.carInFirstDoor;
-            Assert.True(t);
+            game.WhereIsTheCar();
+            bool first = game.carInFirstDoor;
+            bool second = game.carInSecondDoor;
+            bool third = game.carInThirdDoor;
+            Assert.True(first);
         }
 
         // Create test to ask player if he woul stay or switch?
@@ -61,39 +61,12 @@ namespace TestProject
         {
             string expMess = "You did not choose correct answer.";
             IPlayer fakeAnswer = new FakePlayer();
-            fakeAnswer.AnswerStayOrSwitchTheDoor();
             RunTheGame.StartGame(fakeAnswer);
           // Call method with fake answer = "3"
-            var exp = Assert.Throws<Exception>(() => fakeAnswer.AnswerStayOrSwitchTheDoor());
+            var exp = Assert.Throws<MyException>(() => fakeAnswer.AnswerStayOrSwitchTheDoor());
             Assert.Equal(expMess, exp.Message);
         }
 
-        // Check if we are open right door with car behind
-
-        [Fact]
-        public void CheckIfPlayerWonTestUsingRandomPrizeGeneratorClass() // Using real Prize class but fake answer** ASK Simon
-        {
-            bool playerWon = true;
-            IPrize prize1 = new FakePrize();
-            IPlayer fakeplayer = new FakePlayer();
-            RunTheGame.StartGame(fakeplayer);
-            
-            Game game = new(prize1);//Player chooses door #3 and then switched the door 
-            bool res = game.ResultOfGame();
-            Assert.Equal(playerWon, res);
-        }
-
-        [Fact]
-        public void CheckIfPlayerWonTestUsingRandomPrizeGeneratorClass2() // Using real Prize class but fake answer** ASK Simon
-        {
-            bool playerWon = true;
-            Game game = new();
-            IPlayer fakeplayer = new FakePlayer();
-            RunTheGame.StartGame(fakeplayer); //Player chooses door #3 and then switched the door 
-            bool res = game.ResultOfGame();
-            Assert.Equal(playerWon, res);
-        }
-        
         [Fact]
         public void GreetingMessages()
         {
@@ -174,10 +147,9 @@ namespace TestProject
             game.ReturnPrizeBehindThirdDoor(prize3);
             generator.ReturnAllPrizes();
             game.PlayerWon();*/
-            var corr = game.DoorWithCarBehind();
-            var n = corr.Count();
-            var m = corr.Contains("l");
-            var l = corr.GetType();
+             game.DoorWithCarBehind();
+            var true1 = game.carInFirstDoor;
+     
         }
     }
 }

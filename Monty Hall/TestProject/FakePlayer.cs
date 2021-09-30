@@ -9,7 +9,7 @@ namespace TestProject
 {
     public class FakePlayer : IPlayer
     {
-        List<string> fakeAnswer = new List<string>() {  "2", "1", "2", "3" };//Door number 3, then swittch the door.
+        List<string> fakeAnswer = new List<string>() {  "2", "1", "2", "1" };//Door number 3, then swittch the door.
        
         public string AnswerChooseNumberOfDoor()
         {

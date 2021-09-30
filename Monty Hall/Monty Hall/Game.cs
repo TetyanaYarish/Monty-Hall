@@ -11,7 +11,7 @@ namespace Monty_Hall
     {
         IPrize prize;
         public bool carInFirstDoor = false;
-        public bool carInSecondDoor = false;//**
+        public bool carInSecondDoor = false;
         public bool carInThirdDoor = false;
         string luxCar = "Luxury car";
         bool playerWon;
@@ -21,41 +21,33 @@ namespace Monty_Hall
         {
             prize = prize2;
         }
+        
         public Game()
         {
             prize = new RandomPrizeGenerator();
         }
-        public string CheckIfCarBehindTheFirstDoor()// ** check constructor Game (2 vers) in BJ 
+ 
+        public void WhereIsTheCar()
         {
-            var newPrize = prize.YourPrize();
-            if (newPrize == luxCar)
+            var door1 = prize.YourPrize();
+            var door2 = prize.YourPrize();
+            var door3 = prize.YourPrize();
+            if (door1 == luxCar)
             {
                 carInFirstDoor = true;
             }
-            return newPrize;
-        }
-        public string CheckIfCarBehindTheSecondDoor()
-        {
-            var newPrize = prize.YourPrize();
-            if (newPrize == luxCar)
+            else if (door2 == luxCar)
             {
                 carInSecondDoor = true;
             }
-            return newPrize;
-        }
-
-        public string CheckIfCarBehindTheThirdDoor()
-        {
-            var newPrize = prize.YourPrize();
-            if (newPrize == luxCar)
+            else if (door3 == luxCar)
             {
                 carInThirdDoor = true;
             }
-            return newPrize;
         }
-
         public string DoorWithCarBehind()
         {
+         
             string doorWithCar = "";
             if (carInFirstDoor)
             {
@@ -84,9 +76,6 @@ namespace Monty_Hall
                 Console.WriteLine("You have chosen First door.");
                 Console.WriteLine("Third door has a goat.");
             }
-            // return door = "1"; //a
-            //door = "1";  //b
-            //return door; //b
         }
         public void PlayerChooseSecondDoor()
         {

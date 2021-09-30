@@ -12,10 +12,7 @@ namespace Monty_Hall
         public static void StartGame(IPlayer pl)// Start game
         {
             Game game = new();
-            game.CheckIfCarBehindTheFirstDoor();
-            game.CheckIfCarBehindTheSecondDoor();
-            game.CheckIfCarBehindTheThirdDoor();
-
+            game.WhereIsTheCar();
             Console.WriteLine("Please choose the door number [1/2/3].");
             var ans = pl.AnswerChooseNumberOfDoor();
             switch (ans)

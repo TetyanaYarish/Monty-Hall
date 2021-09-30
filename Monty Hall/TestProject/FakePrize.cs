@@ -10,7 +10,7 @@ namespace TestProject
     class FakePrize : IPrize
     {
 
-        List<string> listOfPrizes = new List<string> { "Luxury car", "Luxury car", "Luxury car" };
+        List<string> listOfPrizes = new List<string> { "Luxury car", "Goat", "Goat" };
         public void DoorWithPrize()
         {
             YourPrize();
@@ -18,14 +18,15 @@ namespace TestProject
 
         public string YourPrize()
         {
-            int num = listOfPrizes.Count();
-            if (num < 1)
+            int num = 0;
+            string value = listOfPrizes[num];
+            if (listOfPrizes.Count()< 0)
             {
                 return null;
-            }
-            string value = listOfPrizes[num-1];
-            listOfPrizes.Remove(value);//remove prize from list of prizes
 
+                //remove prize from list of prizes 
+            }
+            listOfPrizes.Remove(value);
             return value;
         }
 

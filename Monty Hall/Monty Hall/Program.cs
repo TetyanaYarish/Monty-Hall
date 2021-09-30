@@ -11,7 +11,6 @@ namespace Monty_Hall
         {
             IPlayer pl = new Player();
             bool start = true;
-            Game game = new();
             Message message = new ();
             message.Text();
             Console.WriteLine(new RunTheGame().Greetings());
