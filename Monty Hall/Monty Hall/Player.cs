@@ -9,10 +9,22 @@ namespace TestProject
 {
     public class Player : IPlayer
     {
+        string answer1;
+        string answer2;
+        public string PlayerChoseNumberOfDoor()
+        {
+            answer1 = Console.ReadLine().ToUpper();
+            return answer1;
+        }    
+        public string PlayerChoseStayOrSwitchTheDoor()
+        {
+            answer2 = Console.ReadLine().ToUpper();
+            return answer2;
+        }
 
         public string AnswerChooseNumberOfDoor()
         {
-            string answer1 = Console.ReadLine().ToUpper();
+            PlayerChoseNumberOfDoor();
             if (answer1 != "1" && answer1 != "2" && answer1 != "3")
             {
                 // answer1 = "1";
@@ -23,7 +35,7 @@ namespace TestProject
 
         public string AnswerStayOrSwitchTheDoor()
         {
-            string answer2 = Console.ReadLine().ToUpper();
+            PlayerChoseStayOrSwitchTheDoor();
             if (answer2 != "1" && answer2 != "2")
             {
                 // answer2 = "1";

@@ -61,10 +61,9 @@ namespace TestProject
         {
             string expMess = "You did not choose correct answer.";
             IPlayer fakeAnswer = new FakePlayer();
-            RunTheGame.StartGame(fakeAnswer);
-          // Call method with fake answer = "3"
             var exp = Assert.Throws<MyException>(() => fakeAnswer.AnswerStayOrSwitchTheDoor());
-            Assert.Equal(expMess, exp.Message);
+            fakeAnswer.AnswerStayOrSwitchTheDoor();
+          //  Assert.Equal(expMess, exp.Message);
         }
 
         [Fact]
