@@ -11,6 +11,15 @@ namespace TestProject
     {
         string answer1;
         string answer2;
+        IPlayer iPlayer;
+        public Player(IPlayer player)
+        {
+            iPlayer = player;
+        }
+        public Player()
+        {
+
+        }
         public string PlayerChoseNumberOfDoor()
         {
             answer1 = Console.ReadLine().ToUpper();
@@ -24,7 +33,7 @@ namespace TestProject
 
         public string AnswerChooseNumberOfDoor()
         {
-            PlayerChoseNumberOfDoor();
+              PlayerChoseNumberOfDoor();
             if (answer1 != "1" && answer1 != "2" && answer1 != "3")
             {
                 // answer1 = "1";

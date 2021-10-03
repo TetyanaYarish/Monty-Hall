@@ -59,11 +59,14 @@ namespace TestProject
         [Fact]
         public void CheckIfExceptionWorksTest()// Check, if player's answer works
         {
+            string answer5 = "5";
             string expMess = "You did not choose correct answer.";
-            IPlayer fakeAnswer = new FakePlayer();
-            var exp = Assert.Throws<MyException>(() => fakeAnswer.AnswerStayOrSwitchTheDoor());
+           
+            IPlayer fakeAnswer2 = new FakePlayer();
+            IPlayer fakeAnswer = new Player(fakeAnswer2);
+            var exp = Assert.Throws<MyException>(() => fakeAnswer2.AnswerChooseNumberOfDoor());
             fakeAnswer.AnswerStayOrSwitchTheDoor();
-          //  Assert.Equal(expMess, exp.Message);
+         Assert.Equal(expMess, exp.Message);
         }
 
         [Fact]
