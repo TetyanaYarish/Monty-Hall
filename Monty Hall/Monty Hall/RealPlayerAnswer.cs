@@ -7,16 +7,16 @@ using Monty_Hall;
 
 namespace TestProject
 {
-    public class Player : IPlayer
+    public class RealPlayerAnswer : IPlayerAnswer
     {
         string answer1;
         string answer2;
-        IPlayer iPlayer;
-        public Player(IPlayer player)
+        IPlayerAnswer iPlayer;
+        public RealPlayerAnswer(IPlayerAnswer player)
         {
             iPlayer = player;
         }
-        public Player()
+        public RealPlayerAnswer()
         {
 
         }

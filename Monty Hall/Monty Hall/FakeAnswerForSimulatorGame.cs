@@ -7,15 +7,15 @@ using Monty_Hall;
 
 namespace TestProject
 {
-    public class FakePlayer : IPlayer
+    public class FakeAnswerForSimulatorGame : IPlayerAnswer
     {
-        List<string> fakeAnswer = new List<string>() {  "2", "3", "3", "3" };//Door number 3, then swittch the door.
+        List<string> fakeAnswer = new List<string>() { "2", "1", "1", "2", "1", "1", "1", "1", "2", "1", "1", "2", "2", "1", "1", "3" };//Door number 3, then swittch the door.
        
         public string AnswerChooseNumberOfDoor()
         {
             var m = fakeAnswer.Count();
             var answ = fakeAnswer[m - 1];
-            if (answ !="1" || answ !="2" || answ !="3")
+            if (answ !="1" && answ !="2" && answ !="3")
             {
                 throw (new MyException("You did not choose correct answer."));
             }
@@ -28,7 +28,7 @@ namespace TestProject
             var m = fakeAnswer.Count();
             var answ = fakeAnswer[m - 1];
             fakeAnswer.Remove(answ);
-            if (answ != "1" || answ != "2" )
+            if (answ != "1" && answ != "2" )
             {
                 throw (new MyException("You did not choose correct answer."));
             }

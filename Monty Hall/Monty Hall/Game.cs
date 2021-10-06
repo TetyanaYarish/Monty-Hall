@@ -16,7 +16,7 @@ namespace Monty_Hall
         string luxCar = "Luxury car";
         bool playerWon;
         string door = "";
-        RandomPrizeGenerator prize1 = new();
+        //RandomPrizeGenerator prize1 = new();
         public Game(IPrize prize2)
         {
             prize = prize2;
@@ -115,20 +115,6 @@ namespace Monty_Hall
         {
             return playerWon = false;
         }
-        public bool ResultOfGame()
-        {
-            bool playerWinner=true;
-            if(playerWon)
-            {
-                playerWinner = true;
-                Console.WriteLine("CONGRATULATIONS!");
-            }
-            else if (!playerWon)
-            {
-                playerWinner = false;
-                Console.WriteLine("You lose!");
-            }
-            return playerWinner;
-        }
+      
     }
 }

@@ -9,7 +9,10 @@ namespace Monty_Hall
 {
     public class RunTheGame
     {
-        public static void StartGame(IPlayer pl)// Start game
+        public bool PlayerWon { get; private set; }
+        
+
+        public void StartGame(IPlayerAnswer pl, IPrize prize)// Start game
         {
             Game game = new();
             game.WhereIsTheCar();
@@ -32,8 +35,10 @@ namespace Monty_Hall
             Console.WriteLine($"Do you want stay with your door [1-yes/2-no]");
 
             string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
+         //   resultOfGame = game.ResultOfGame();
+
             switch (playerChoice2)
-            {
+            { 
                 case "1":
                     Console.WriteLine($"You have chosen to stick with your door number {ans}. Car was behind door number { game.DoorWithCarBehind()}.");
                     if (ans == game.DoorWithCarBehind())
@@ -41,13 +46,15 @@ namespace Monty_Hall
 
                         Console.ForegroundColor = ConsoleColor.Red;
                         game.PlayerWon();
-                        game.ResultOfGame();
+                        Console.WriteLine("CONGRATULATIONS!");
+                        PlayerWon = true;
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         game.PlayerLose();
-                        game.ResultOfGame();
+                        Console.WriteLine("You lose!");
+                        PlayerWon = false;
                     }
                     Console.ResetColor();
                     break;
@@ -56,14 +63,16 @@ namespace Monty_Hall
                     if (ans != game.DoorWithCarBehind())
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("CONGRATULATIONS!");
                         game.PlayerWon();
-                        game.ResultOfGame();
+                        PlayerWon = true;
                     }
                     else
                     {
                         game.PlayerLose();
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        game.ResultOfGame();
+                        Console.WriteLine("You lose!");
+                        PlayerWon = false;
                     }
                     Console.ResetColor();
                     break;

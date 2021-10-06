@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monty_Hall
 {
-    public interface IPlayer
+    public interface IPlayerAnswer
     {
         string AnswerChooseNumberOfDoor();
         string AnswerStayOrSwitchTheDoor();
