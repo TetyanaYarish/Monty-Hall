@@ -9,25 +9,29 @@ namespace TestProject
 {
     public class FakeAnswerForSimulatorGame : IPlayerAnswer
     {
-        List<string> fakeAnswer = new List<string>() { "2", "1", "1", "2", "1", "1", "1", "1", "2", "1", "1", "2", "2", "1", "1", "3" };//Door number 3, then swittch the door.
+        List<string> fakeAnswer = new List<string>() { "2", "1"};//Door number 3, then swittch the door.
        
         public string AnswerChooseNumberOfDoor()
         {
-            var m = fakeAnswer.Count();
-            var answ = fakeAnswer[m - 1];
-            if (answ !="1" && answ !="2" && answ !="3")
+            var numberOfDoor = "";
+            Random random = new Random();
+            for (int i = 0; i < 100; i++)
             {
-                throw (new MyException("You did not choose correct answer."));
+                numberOfDoor = random.Next(1,4).ToString();
             }
-            fakeAnswer.Remove(answ);
-            return answ;
+            return numberOfDoor;
         }
 
         public string AnswerStayOrSwitchTheDoor()
         {
             var m = fakeAnswer.Count();
+            if (m == 0)
+            {
+                return "1";
+            }
             var answ = fakeAnswer[m - 1];
             fakeAnswer.Remove(answ);
+         
             if (answ != "1" && answ != "2" )
             {
                 throw (new MyException("You did not choose correct answer."));

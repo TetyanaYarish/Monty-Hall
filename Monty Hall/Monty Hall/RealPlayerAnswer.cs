@@ -9,8 +9,8 @@ namespace TestProject
 {
     public class RealPlayerAnswer : IPlayerAnswer
     {
-        string answer1;
-        string answer2;
+        string answerNumberOfDoor;
+        string answerStayOrSwitchTheDoor;
         IPlayerAnswer iPlayer;
         public RealPlayerAnswer(IPlayerAnswer player)
         {
@@ -22,35 +22,35 @@ namespace TestProject
         }
         public string PlayerChoseNumberOfDoor()
         {
-            answer1 = Console.ReadLine().ToUpper();
-            return answer1;
+            answerNumberOfDoor = Console.ReadLine().ToUpper();
+            return answerNumberOfDoor;
         }    
         public string PlayerChoseStayOrSwitchTheDoor()
         {
-            answer2 = Console.ReadLine().ToUpper();
-            return answer2;
+            answerStayOrSwitchTheDoor = Console.ReadLine().ToUpper();
+            return answerStayOrSwitchTheDoor;
         }
 
         public string AnswerChooseNumberOfDoor()
         {
               PlayerChoseNumberOfDoor();
-            if (answer1 != "1" && answer1 != "2" && answer1 != "3")
+            if (answerNumberOfDoor != "1" && answerNumberOfDoor != "2" && answerNumberOfDoor != "3")
             {
                 // answer1 = "1";
                 throw (new MyException("You did not choose correct answer."));
             }
-            return answer1;
+            return answerNumberOfDoor;
         }
 
         public string AnswerStayOrSwitchTheDoor()
         {
             PlayerChoseStayOrSwitchTheDoor();
-            if (answer2 != "1" && answer2 != "2")
+            if (answerStayOrSwitchTheDoor != "1" && answerStayOrSwitchTheDoor != "2")
             {
                 // answer2 = "1";
                 throw (new MyException("You did not choose correct answer."));
             }
-            return answer2;
+            return answerStayOrSwitchTheDoor;
         }
     }
 }

@@ -15,19 +15,22 @@ namespace Monty_Hall
         {
             int playerWon = 0;
             int playerLose = 0;
-            for (int i = 0; i < 4; i++)
+            Console.WriteLine("Please choose number of games.");
+            int numberOfRun= Convert.ToInt32(Console.ReadLine()); ;
+            for (int i = 0; i < numberOfRun; i++)
             {
                 IPrize prizeGenerator = new RandomPrizeGenerator();
+               
                 RunTheGame runGame = new();
                 runGame.StartGame(answer, prizeGenerator);
                 bool result = runGame.PlayerWon;
                 if (result)
                 {
-                    playerWon += 1;
+                    playerWon ++;
                 }
                 else
                 {
-                    playerLose += 1;
+                    playerLose ++;
                 }
             }
             Console.ForegroundColor = ConsoleColor.Blue;

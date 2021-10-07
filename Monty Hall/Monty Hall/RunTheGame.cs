@@ -35,8 +35,6 @@ namespace Monty_Hall
             Console.WriteLine($"Do you want stay with your door [1-yes/2-no]");
 
             string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
-         //   resultOfGame = game.ResultOfGame();
-
             switch (playerChoice2)
             { 
                 case "1":

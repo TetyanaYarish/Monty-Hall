@@ -19,7 +19,7 @@ namespace TestProject
             int num2 = door.listOfPrizes.Count();
             int n = door.CountPrizes();
             Assert.Equal(1, num2);//One prise at the end
-           Assert.Equal(1, n);//Assert Second method
+            Assert.Equal(1, n);//Assert Second method
             Assert.NotEqual(3, num2);//Assert Third method
         }
         [Fact]
@@ -51,19 +51,6 @@ namespace TestProject
             bool second = game.carInSecondDoor;
             bool third = game.carInThirdDoor;
             Assert.True(first);
-        }
-
-        // Create test to ask player if he woul stay or switch?
-
-        [Fact]
-        public void CheckIfExceptionWorksTest()// Check, if player's answer works
-        {
-            string expMess = "You did not choose correct answer.";
-            IPlayerAnswer fakeAnswer2 = new FakePlayerAnswer();
-            IPlayerAnswer fakeAnswer = new RealPlayerAnswer(fakeAnswer2);
-            var exp = Assert.Throws<MyException>(() => fakeAnswer2.AnswerChooseNumberOfDoor());
-            // fakeAnswer.AnswerStayOrSwitchTheDoor();
-            Assert.Equal(expMess, exp.Message);
         }
 
         [Fact]
@@ -111,28 +98,26 @@ namespace TestProject
             var num = randomPrize.listOfPrizes.Count();
             Assert.Equal(expectedNumber, num);
         }
-        [Fact]
-        public void ChectIfTestUsingFakeAnswerAndFakePrize()
-        {
-            IPrize prize = new FakePrize();
-            IPlayerAnswer playerAnswer = new RealPlayerAnswer();
-            var pr = prize.YourPrize();
-            RunTheGame runGame = new();
-            Game game = new();
-            var door = game.DoorWithCarBehind();
-            runGame.StartGame(playerAnswer, prize);
-            game.WhereIsTheCar();
-            Assert.Equal(pr, door);
-        }
+     
 
-        [Fact]
-        public void TestJustAllClassesAndFunctionsDebugToSeeAllOutcomes()
-        {/*
-            IPlayer fakeplayer = new FakePlayer();
-            IPrize fakePrize = new FakePrize();
-            var numberOfDoor = fakeplayer.AnswerChooseNumberOfDoor();
-            var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();*/
-            Game game = new();/*
+        //[Fact]//Leave just to have example for exception messages
+        //public void CheckIfExceptionWorksTest()// Check, if player's answer works
+        //{
+        //    string expMess = "You did not choose correct answer.";
+        //    IPlayerAnswer fakeAnswer2 = new FakePlayerAnswer();
+        //    IPlayerAnswer fakeAnswer = new RealPlayerAnswer(fakeAnswer2);
+        //    var exp = Assert.Throws<MyException>(() => fakeAnswer2.AnswerChooseNumberOfDoor());
+        //    // fakeAnswer.AnswerStayOrSwitchTheDoor();
+        //    Assert.Equal(expMess, exp.Message);
+        //}
+        /* [Fact]
+         public void TestJustAllClassesAndFunctionsDebugToSeeAllOutcomes()
+         {
+             IPlayer fakeplayer = new FakePlayer();
+             IPrize fakePrize = new FakePrize();
+             var numberOfDoor = fakeplayer.AnswerChooseNumberOfDoor();
+             var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();*/
+        Game game = new();/*
             RandomPrizeGenerator randomPrize = new();
             RunTheGame runGame = new();
             var start = runGame.Greetings();
@@ -159,10 +144,10 @@ namespace TestProject
             game.ReturnPrizeBehindSecondDoor(prize2);
             game.ReturnPrizeBehindThirdDoor(prize3);
             generator.ReturnAllPrizes();
-            game.PlayerWon();*/
+            game.PlayerWon();
             game.DoorWithCarBehind();
             var true1 = game.carInFirstDoor;
 
-        }
+        }*/
     }
 }
