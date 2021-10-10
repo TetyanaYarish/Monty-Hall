@@ -98,25 +98,24 @@ namespace TestProject
             var num = randomPrize.listOfPrizes.Count();
             Assert.Equal(expectedNumber, num);
         }
-     
 
-        //[Fact]//Leave just to have example for exception messages
-        //public void CheckIfExceptionWorksTest()// Check, if player's answer works
-        //{
-        //    string expMess = "You did not choose correct answer.";
-        //    IPlayerAnswer fakeAnswer2 = new FakePlayerAnswer();
-        //    IPlayerAnswer fakeAnswer = new RealPlayerAnswer(fakeAnswer2);
-        //    var exp = Assert.Throws<MyException>(() => fakeAnswer2.AnswerChooseNumberOfDoor());
-        //    // fakeAnswer.AnswerStayOrSwitchTheDoor();
-        //    Assert.Equal(expMess, exp.Message);
-        //}
+
+        [Fact]//Leave just to have example for exception messages
+        public void CheckIfExceptionWorksTest()// Check, if player's answer works
+        {
+            string expMess = "You did not choose correct answer.";
+            IAnswerFromPlayerToChoseTheDoor answerFromPlayer = new AnswerFromPlayerFakeDoorNumber();
+            IPlayerAnswer realAnswer = new RealPlayerAnswer(answerFromPlayer);
+            var exp = Assert.Throws<MyException>(() => realAnswer.AnswerChooseNumberOfDoor());
+            Assert.Equal(expMess, exp.Message);
+        }
         /* [Fact]
          public void TestJustAllClassesAndFunctionsDebugToSeeAllOutcomes()
          {
              IPlayer fakeplayer = new FakePlayer();
              IPrize fakePrize = new FakePrize();
              var numberOfDoor = fakeplayer.AnswerChooseNumberOfDoor();
-             var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();*/
+             var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();
         Game game = new();/*
             RandomPrizeGenerator randomPrize = new();
             RunTheGame runGame = new();

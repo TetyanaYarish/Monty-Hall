@@ -10,30 +10,33 @@ namespace TestProject
     public class RealPlayerAnswer : IPlayerAnswer
     {
         string answerNumberOfDoor;
-        string answerStayOrSwitchTheDoor;
+        int answerStayOrSwitchTheDoor;
         IPlayerAnswer iPlayer;
-        public RealPlayerAnswer(IPlayerAnswer player)
-        {
-            iPlayer = player;
-        }
+       // IAnswerFromPlayerToChoseTheDoor answerFromPlayer=new AnswerFromPlayerFakeDoorNumber();
+        IAnswerFromPlayerToChoseTheDoor answerFromPlayer=new AnswerFromPlayerFromConsoleReadLine();
+     
         public RealPlayerAnswer()
         {
 
         }
-        public string PlayerChoseNumberOfDoor()
+        public RealPlayerAnswer(IAnswerFromPlayerToChoseTheDoor answerFromPlayer1)
         {
-            answerNumberOfDoor = Console.ReadLine().ToUpper();
-            return answerNumberOfDoor;
-        }    
-        public string PlayerChoseStayOrSwitchTheDoor()
+
+        }
+        public int PlayerChoseStayOrSwitchTheDoor()
         {
-            answerStayOrSwitchTheDoor = Console.ReadLine().ToUpper();
+            answerStayOrSwitchTheDoor =Convert.ToInt32( Console.ReadLine());
+            if (answerStayOrSwitchTheDoor != 1 && answerStayOrSwitchTheDoor != 2)
+            {
+                // answer2 = "1";
+                throw (new MyException("You did not choose correct answer."));
+            }
             return answerStayOrSwitchTheDoor;
         }
 
         public string AnswerChooseNumberOfDoor()
         {
-              PlayerChoseNumberOfDoor();
+            answerNumberOfDoor= answerFromPlayer.PlayerChoseNumberOfDoor();
             if (answerNumberOfDoor != "1" && answerNumberOfDoor != "2" && answerNumberOfDoor != "3")
             {
                 // answer1 = "1";
@@ -42,14 +45,10 @@ namespace TestProject
             return answerNumberOfDoor;
         }
 
-        public string AnswerStayOrSwitchTheDoor()
+        public int AnswerStayOrSwitchTheDoor()
         {
             PlayerChoseStayOrSwitchTheDoor();
-            if (answerStayOrSwitchTheDoor != "1" && answerStayOrSwitchTheDoor != "2")
-            {
-                // answer2 = "1";
-                throw (new MyException("You did not choose correct answer."));
-            }
+           
             return answerStayOrSwitchTheDoor;
         }
     }

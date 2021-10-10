@@ -9,26 +9,26 @@ namespace TestProject
 {
     public class FakePlayerAnswer : IPlayerAnswer
     {
-        List<string> fakeAnswer = new List<string>() {  "2", "2", "1", "3" };//Door number 3, then swittch the door.
+        List<int> fakeAnswer = new List<int>() {  2,2,1,1 };//Door number 3, then swittch the door.
        
         public string AnswerChooseNumberOfDoor()
         {
             var m = fakeAnswer.Count();
             var answ = fakeAnswer[m - 1];
-            if (answ !="1" && answ !="2" && answ !="3")
+            if (answ !=1 && answ !=2 && answ !=3)
             {
                 throw (new MyException("You did not choose correct answer."));
             }
             fakeAnswer.Remove(answ);
-            return answ;
+            return answ.ToString();
         }
 
-        public string AnswerStayOrSwitchTheDoor()
+        public int AnswerStayOrSwitchTheDoor()
         {
             var m = fakeAnswer.Count();
             var answ = fakeAnswer[m - 1];
             fakeAnswer.Remove(answ);
-            if (answ != "1" && answ != "2" )
+            if (answ != 1 && answ != 2 )
             {
                 throw (new MyException("You did not choose correct answer."));
             }

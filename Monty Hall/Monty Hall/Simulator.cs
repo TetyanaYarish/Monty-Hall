@@ -16,7 +16,7 @@ namespace Monty_Hall
             int playerWon = 0;
             int playerLose = 0;
             Console.WriteLine("Please choose number of games.");
-            int numberOfRun= Convert.ToInt32(Console.ReadLine()); ;
+            int numberOfRun= Convert.ToInt32(Console.ReadLine()); 
             for (int i = 0; i < numberOfRun; i++)
             {
                 IPrize prizeGenerator = new RandomPrizeGenerator();

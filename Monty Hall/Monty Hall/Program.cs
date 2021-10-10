@@ -20,17 +20,15 @@ namespace Monty_Hall
                 var ans = pl.AnswerStayOrSwitchTheDoor();
                 switch (ans)
                 {
-                    case "1":
-                       
+                    case 1:
                             Console.WriteLine(new RunTheGame().Greetings());
                             RunTheGame runGame = new();
                             IPrize prize = new RandomPrizeGenerator();
                             runGame.StartGame(pl, prize);
                             Console.WriteLine("Do you wish to continue? [1-yes/2-no]");
-                            start = pl.AnswerStayOrSwitchTheDoor() == "1";
-                       
+                            start = pl.AnswerStayOrSwitchTheDoor() == 1;
                         break;
-                    case "2":
+                    case 2:
                             Console.WriteLine(new RunTheGame().Greetings());
                             Simulator simulator = new();
                             simulator.RunSimulator2();

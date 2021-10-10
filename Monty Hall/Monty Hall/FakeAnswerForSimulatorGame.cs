@@ -9,7 +9,7 @@ namespace TestProject
 {
     public class FakeAnswerForSimulatorGame : IPlayerAnswer
     {
-        List<string> fakeAnswer = new List<string>() { "2", "1"};//Door number 3, then swittch the door.
+        List<int> fakeAnswer = new List<int>() { 2, 1};//Door number 3, then swittch the door.
        
         public string AnswerChooseNumberOfDoor()
         {
@@ -22,17 +22,17 @@ namespace TestProject
             return numberOfDoor;
         }
 
-        public string AnswerStayOrSwitchTheDoor()
+        public int AnswerStayOrSwitchTheDoor()
         {
             var m = fakeAnswer.Count();
             if (m == 0)
             {
-                return "1";
+                return 1;
             }
             var answ = fakeAnswer[m - 1];
             fakeAnswer.Remove(answ);
          
-            if (answ != "1" && answ != "2" )
+            if (answ != 1 && answ != 2 )
             {
                 throw (new MyException("You did not choose correct answer."));
             }

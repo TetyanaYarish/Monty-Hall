@@ -16,6 +16,7 @@ namespace Monty_Hall
         {
             Game game = new();
             game.WhereIsTheCar();
+
             Console.WriteLine("Please choose the door number [1/2/3].");
             var ans = pl.AnswerChooseNumberOfDoor();
             switch (ans)
@@ -34,10 +35,10 @@ namespace Monty_Hall
             }
             Console.WriteLine($"Do you want stay with your door [1-yes/2-no]");
 
-            string playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
+            int playerChoice2 = pl.AnswerStayOrSwitchTheDoor();
             switch (playerChoice2)
             { 
-                case "1":
+                case 1:
                     Console.WriteLine($"You have chosen to stick with your door number {ans}. Car was behind door number { game.DoorWithCarBehind()}.");
                     if (ans == game.DoorWithCarBehind())
                     {
@@ -56,7 +57,7 @@ namespace Monty_Hall
                     }
                     Console.ResetColor();
                     break;
-                case "2":
+                case 2:
                     Console.WriteLine($"You have chosen to switch your door number {ans}. Car was behind door number { game.DoorWithCarBehind()}.");
                     if (ans != game.DoorWithCarBehind())
                     {
