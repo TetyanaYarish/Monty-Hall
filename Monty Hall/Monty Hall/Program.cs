@@ -31,7 +31,7 @@ namespace Monty_Hall
                     case 2:
                             Console.WriteLine(new RunTheGame().Greetings());
                             Simulator simulator = new();
-                            simulator.RunSimulator2();
+                            simulator.RunSimulator();
                         break;
                     default:
                         break;

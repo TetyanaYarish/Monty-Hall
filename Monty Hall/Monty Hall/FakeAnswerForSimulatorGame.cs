@@ -9,19 +9,23 @@ namespace TestProject
 {
     public class FakeAnswerForSimulatorGame : IPlayerAnswer
     {
-        List<int> fakeAnswer = new List<int>() { 2, 1};//Door number 3, then swittch the door.
-       
+        List<int> fakeAnswer = new List<int>() { 2, 2,3,1 };//Door number 3, then swittch the door.
+        //int fakeAnswer2;
+        
+        AnswerFromPlayerFromConsoleReadLine answer = new();
+        //
         public string AnswerChooseNumberOfDoor()
         {
             var numberOfDoor = "";
             Random random = new Random();
-            for (int i = 0; i < 100; i++)
-            {
-                numberOfDoor = random.Next(1,4).ToString();
-            }
+            numberOfDoor = random.Next(1, 4).ToString();
             return numberOfDoor;
         }
-
+        public int ReadTheAnswerFromPlayerAndKeepIt()
+        {
+            int fakeAnswer2 = Convert.ToInt32(Console.ReadLine());
+            return fakeAnswer2;
+        }
         public int AnswerStayOrSwitchTheDoor()
         {
             var m = fakeAnswer.Count();
@@ -31,14 +35,8 @@ namespace TestProject
             }
             var answ = fakeAnswer[m - 1];
             fakeAnswer.Remove(answ);
-         
-            if (answ != 1 && answ != 2 )
-            {
-                throw (new MyException("You did not choose correct answer."));
-            }
-           
+
             return answ;
         }
-
     }
-    }
+}

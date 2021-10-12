@@ -1,0 +1,39 @@
+ /* [Fact]
+         public void TestJustAllClassesAndFunctionsDebugToSeeAllOutcomes()
+         {
+             IPlayer fakeplayer = new FakePlayer();
+             IPrize fakePrize = new FakePrize();
+             var numberOfDoor = fakeplayer.AnswerChooseNumberOfDoor();
+             var stayOrSwitch = fakeplayer.AnswerStayOrSwitchTheDoor();
+        Game game = new();/*
+            RandomPrizeGenerator randomPrize = new();
+            RunTheGame runGame = new();
+            var start = runGame.Greetings();
+            RunTheGame.StartGame(fakeplayer);
+            var pr00 = fakePrize.YourPrize(); //null
+            var pr0 = fakePrize.YourPrize(); //Goat
+            var pr1 = game.ReturnPrizeBehindFirstDoor(fakePrize); //LC
+            var pr2 = game.ReturnPrizeBehindSecondDoor(fakePrize); //null
+            var pr3 = game.ReturnPrizeBehindThirdDoor(fakePrize); //null
+            var first = game.PlayerChooseFirstDoor(); //1
+            var second = game.PlayerChooseSecondDoor(); //2
+            var third = game.PlayerChooseThirdDoor(); //3
+            var playerLose = game.PlayerLose(); //False
+            var playerWon = game.PlayerWon(); //True
+            var door = game.DoorWithCarBehind(); //!
+            runGame.Greetings();
+            RandomPrizeGenerator generator = new();
+            IPlayer player = new FakePlayer();// Double
+            RunTheGame.StartGame(player);//Double
+            IPrize prize1 = new FakePrize();
+            IPrize prize2 = new FakePrize();
+            IPrize prize3 = new FakePrize();
+            game.ReturnPrizeBehindFirstDoor(prize1); //LC and Goat 1
+            game.ReturnPrizeBehindSecondDoor(prize2);
+            game.ReturnPrizeBehindThirdDoor(prize3);
+            generator.ReturnAllPrizes();
+            game.PlayerWon();
+            game.DoorWithCarBehind();
+            var true1 = game.carInFirstDoor;
+
+        }*/

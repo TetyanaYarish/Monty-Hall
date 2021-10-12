@@ -9,9 +9,8 @@ namespace Monty_Hall
 {
     public class Simulator
     {
-        IPlayerAnswer answer = new FakeAnswerForSimulatorGame();
-
-        public void RunSimulator2()
+        IPrize prizeGenerator = new RandomPrizeGenerator();
+        public void RunSimulator()
         {
             int playerWon = 0;
             int playerLose = 0;
@@ -19,9 +18,8 @@ namespace Monty_Hall
             int numberOfRun= Convert.ToInt32(Console.ReadLine()); 
             for (int i = 0; i < numberOfRun; i++)
             {
-                IPrize prizeGenerator = new RandomPrizeGenerator();
-               
                 RunTheGame runGame = new();
+                IPlayerAnswer answer = new FakeAnswerForSimulatorGame();
                 runGame.StartGame(answer, prizeGenerator);
                 bool result = runGame.PlayerWon;
                 if (result)

@@ -12,9 +12,9 @@ namespace TestProject
         string answerNumberOfDoor;
         int answerStayOrSwitchTheDoor;
         IPlayerAnswer iPlayer;
-       // IAnswerFromPlayerToChoseTheDoor answerFromPlayer=new AnswerFromPlayerFakeDoorNumber();
-        IAnswerFromPlayerToChoseTheDoor answerFromPlayer=new AnswerFromPlayerFromConsoleReadLine();
-     
+        // IAnswerFromPlayerToChoseTheDoor answerFromPlayer=new AnswerFromPlayerFakeDoorNumber();
+        IAnswerFromPlayerToChoseTheDoor answerFromPlayer = new AnswerFromPlayerFromConsoleReadLine();
+
         public RealPlayerAnswer()
         {
 
@@ -25,7 +25,7 @@ namespace TestProject
         }
         public int PlayerChoseStayOrSwitchTheDoor()
         {
-            answerStayOrSwitchTheDoor =Convert.ToInt32( Console.ReadLine());
+            answerStayOrSwitchTheDoor = Convert.ToInt32(Console.ReadLine());
             if (answerStayOrSwitchTheDoor != 1 && answerStayOrSwitchTheDoor != 2)
             {
                 // answer2 = "1";
@@ -36,7 +36,7 @@ namespace TestProject
 
         public string AnswerChooseNumberOfDoor()
         {
-            answerNumberOfDoor= answerFromPlayer.PlayerChoseNumberOfDoor();
+            answerNumberOfDoor = answerFromPlayer.PlayerChoseNumberOfDoor();
             if (answerNumberOfDoor != "1" && answerNumberOfDoor != "2" && answerNumberOfDoor != "3")
             {
                 // answer1 = "1";
@@ -48,7 +48,7 @@ namespace TestProject
         public int AnswerStayOrSwitchTheDoor()
         {
             PlayerChoseStayOrSwitchTheDoor();
-           
+
             return answerStayOrSwitchTheDoor;
         }
     }
